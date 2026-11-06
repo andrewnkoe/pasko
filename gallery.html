@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | Explore Lesotho</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-icon"><i class="bi bi-compass"></i></span>
+            <span>Explore Lesotho</span>
+            <span class="brand-badge d-none d-sm-inline">Kingdom in the Sky</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i>About</a></li>
+                <li class="nav-item"><a class="nav-link" href="destination.html"><i class="bi bi-geo-alt me-1"></i>Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="service.html"><i class="bi bi-backpack2 me-1"></i>Services</a></li>
+                <li class="nav-item"><a class="nav-link active" href="gallery.html"><i class="bi bi-images me-1"></i>Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="contact.html" class="btn btn-nav-cta">
+                        <i class="bi bi-calendar-check me-1"></i>Book Trip
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+
+<main>
+<!-- PAGE BANNER -->
+<section class="page-banner">
+    <div class="container">
+        <div class="breadcrumb-custom justify-content-center">
+            <a href="index.html">Home</a>
+            <i class="bi bi-chevron-right text-white-50"></i>
+            <span>Photo Gallery</span>
+        </div>
+        <h1>Lesotho Photo Gallery</h1>
+        <p>A visual journey through towering peaks, thundering falls, vibrant heritage, and modern cityscapes.</p>
+    </div>
+</section>
+
+<!-- GALLERY CONTENT -->
+<section class="container py-5">
+    <div class="section-header">
+        <span class="section-pill"><i class="bi bi-camera-fill"></i> Visual Showcase</span>
+        <h2 class="section-title">Scenes from the Sky Kingdom</h2>
+        <p class="section-subtitle">Click any photograph to open the high-resolution lightbox viewer. Use keyboard arrow keys or buttons to navigate.</p>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <div class="gallery-grid">
+        
+        <!-- 1. Sani Pass Road -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="zz.jfif" class="gallery-img" alt="Sani Pass dramatic switchbacks and mountain cliff drop" data-title="Sani Pass Mountain Switchbacks" data-category="Mountain Pass">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-triangle-fill"></i> Mountain Pass</span>
+                <h4 class="gallery-title">Sani Pass Switchbacks</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 2. Maletsunyane Falls Aerial -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="falls.jfif" class="gallery-img" alt="Aerial view of Maletsunyane Falls and mist gorge" data-title="Maletsunyane Gorge & Waterfall" data-category="Waterfall">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-water"></i> Waterfall</span>
+                <h4 class="gallery-title">Maletsunyane Canyon &amp; Falls</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 3. Basotho Hat (Mokorotlo Building) -->
+        <div class="gallery-item" data-category="Culture & Heritage">
+            <img src="maseru.jfif" class="gallery-img" alt="The Basotho Hat craft building in Maseru city" data-title="Basotho Hat (Mokorotlo) Craft Centre" data-category="Heritage">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-bank"></i> Cultural Icon</span>
+                <h4 class="gallery-title">Basotho Hat Craft Centre</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 4. Sehlabathebe National Park -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="sehla.jfif" class="gallery-img" alt="Sehlabathebe National Park rock pools and mountain reflections" data-title="Sehlabathebe Alpine Tarns & Monoliths" data-category="UNESCO World Heritage">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-tree-fill"></i> UNESCO Heritage</span>
+                <h4 class="gallery-title">Sehlabathebe Alpine Pools</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 5. Katse Dam Reservoir -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="katse.jfif" class="gallery-img" alt="Katse Dam massive concrete wall and foaming water spillway" data-title="Katse Dam Spillway & Highlands Reservoir" data-category="Engineering Marvel">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-water"></i> Engineering</span>
+                <h4 class="gallery-title">Katse Dam &amp; Spillway</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 6. Thabana Ntlenyana Snowy Peak -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="thaba.jfif" class="gallery-img" alt="Snow dusted slopes of Thabana Ntlenyana mountain peak" data-title="Thabana Ntlenyana Peak (3,482 m)" data-category="Highest Summit">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-snow"></i> Southern Africa Summit</span>
+                <h4 class="gallery-title">Thabana Ntlenyana Peak</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 7. Maliba Mountain Lodge -->
+        <div class="gallery-item" data-category="Accommodation & Stay">
+            <img src="lodge.jfif" class="gallery-img" alt="Maliba Mountain Lodge chalets surrounded by alpine trees" data-title="Maliba Mountain Lodge, Ts'ehlanyane" data-category="Mountain Lodge">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-house-door-fill"></i> Luxury Retreat</span>
+                <h4 class="gallery-title">Maliba Mountain Lodge</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 8. Basotho Traditional Attire & Cooking -->
+        <div class="gallery-item" data-category="Culture & Heritage">
+            <img src="food.jfif" class="gallery-img" alt="Basotho women in traditional dress and Mokorotlo hat cooking by open fire" data-title="Basotho Living Traditions & Cooking" data-category="Culture">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-heart-fill"></i> Basotho Heritage</span>
+                <h4 class="gallery-title">Traditional Feast &amp; Attire</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 9. Sani Pass Plateau -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="king.jfif" class="gallery-img" alt="Sani Pass mountain valley cliffs at golden hour" data-title="Drakensberg Escarpment & Sani Pass" data-category="Highlands">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-sunset-fill"></i> Escarpment</span>
+                <h4 class="gallery-title">Golden Hour at Sani Pass</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 10. Avani Lesotho Resort -->
+        <div class="gallery-item" data-category="Accommodation & Stay">
+            <img src="hotel.jfif" class="gallery-img" alt="Avani Lesotho hotel pool terrace with mountain sunset view" data-title="Avani Lesotho Hotel Resort & Pool" data-category="Luxury Hotel">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-cup-hot-fill"></i> Resort</span>
+                <h4 class="gallery-title">Avani Lesotho Hotel Resort</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 11. Maletsunyane Falls Face View -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="male.jfif" class="gallery-img" alt="Full straight-on view of Maletsunyane Falls single drop" data-title="Maletsunyane Falls (192 meters)" data-category="Waterfall">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-water"></i> Waterfall</span>
+                <h4 class="gallery-title">Maletsunyane 192m Cascade</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 12. Maseru City Panorama -->
+        <div class="gallery-item" data-category="City & Architecture">
+            <img src="city.jfif" class="gallery-img" alt="Panoramic aerial skyline view of Maseru capital city with blue sky" data-title="Maseru Capital City Skyline" data-category="Cityscape">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-buildings"></i> Capital City</span>
+                <h4 class="gallery-title">Maseru City Skyline</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 13. Parliament of Lesotho -->
+        <div class="gallery-item" data-category="City & Architecture">
+            <img src="m.jfif" class="gallery-img" alt="Circular dome building of the Parliament of the Kingdom of Lesotho" data-title="Parliament of Lesotho Building" data-category="Government & Architecture">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-bank2"></i> Architecture</span>
+                <h4 class="gallery-title">Parliament of Lesotho</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 14. Maseru Mall -->
+        <div class="gallery-item" data-category="City & Architecture">
+            <img src="mall.jfif" class="gallery-img" alt="Maseru Mall open air retail complex against sandstone ridge" data-title="Maseru Mall Commercial Center" data-category="Commerce">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-shop"></i> Modern Maseru</span>
+                <h4 class="gallery-title">Maseru Mall Center</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 15. Highland 4x4 Camp -->
+        <div class="gallery-item" data-category="Accommodation & Stay">
+            <img src="camp.jfif" class="gallery-img" alt="Overland 4x4 pickup truck and tent camp in high valley" data-title="High-Altitude Overland Camping" data-category="Camping">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-truck"></i> Expedition</span>
+                <h4 class="gallery-title">Alpine Overland Camping</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+        <!-- 16. Senqu River Horseshoe -->
+        <div class="gallery-item" data-category="Nature & Mountains">
+            <img src="leso.jfif" class="gallery-img" alt="Senqu River winding horseshoe around mountain plateau" data-title="Senqu (Orange) River Mountain Loop" data-category="Canyon">
+            <div class="gallery-overlay">
+                <span class="gallery-tag"><i class="bi bi-compass"></i> Natural Wonder</span>
+                <h4 class="gallery-title">Senqu River Horseshoe Loop</h4>
+                <div class="gallery-zoom-icon"><i class="bi bi-zoom-in"></i></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- LIGHTBOX MODAL WITH KEYBOARD NAVIGATION & COUNTER -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="previewCaption" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 bg-dark text-white shadow-lg overflow-hidden">
+            <div class="modal-header border-0 pb-0 justify-content-between">
+                <div>
+                    <span id="previewCategory" class="badge bg-warning text-dark me-2">Landscape</span>
+                    <span id="previewCounter" class="text-white-50 small">1 / 16</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-3 p-md-4">
+                <div class="position-relative d-inline-block" style="max-height: 75vh; width: 100%;">
+                    <img id="previewImage" src="" class="img-fluid rounded-3 shadow" style="max-height: 70vh; object-fit: contain; margin: 0 auto;" alt="Expanded Lesotho gallery view">
+                </div>
+                <h4 id="previewCaption" class="mt-3 mb-0 text-white fw-bold"></h4>
+            </div>
+            <div class="modal-footer border-0 justify-content-between pt-0 pb-3 px-4">
+                <button type="button" class="btn btn-outline-light btn-sm" onclick="changeGallery(-1)">
+                    <i class="bi bi-chevron-left me-1"></i> Previous
+                </button>
+                <button type="button" class="btn btn-outline-light btn-sm" onclick="changeGallery(1)">
+                    Next <i class="bi bi-chevron-right ms-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BOTTOM CALL TO ACTION -->
+<section class="container text-center py-5">
+    <div class="p-4 p-md-5 rounded-4 bg-surface border">
+        <h3 class="fw-bold mb-2">Want to see these wonders with your own eyes?</h3>
+        <p class="text-muted mb-4">Book a guided photography tour or reserve your accommodation in the Mountain Kingdom today.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="contact.html" class="btn btn-success"><i class="bi bi-calendar-check me-1"></i> Plan a Photography Tour</a>
+            <a href="destination.html" class="btn btn-outline-success"><i class="bi bi-compass me-1"></i> View Destination Guides</a>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <span class="brand-icon"><i class="bi bi-compass"></i></span>
+                    <span>Explore Lesotho</span>
+                </div>
+                <p class="footer-description">The official tourism inspiration portal for the Kingdom of Lesotho. Discover untouched mountains, rich Basotho heritage, and alpine adventures.</p>
+                <div class="footer-social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Destinations</a></li>
+                    <li><a href="service.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                    <li><a href="gallery.html"><i class="bi bi-chevron-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact &amp; Booking</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Top Destinations</h5>
+                <ul class="footer-links">
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Maletsunyane Falls</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Katse Dam</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sehlabathebe Park</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Thabana Ntlenyana</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sani Pass Road</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Tourism Helpline</h5>
+                <ul class="footer-links">
+                    <li><span class="text-white"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Maseru, Lesotho</span></li>
+                    <li><span class="text-white"><i class="bi bi-telephone-fill text-warning me-2"></i> +266 2231 2427</span></li>
+                    <li><span class="text-white"><i class="bi bi-envelope-fill text-warning me-2"></i> info@explorelesotho.gov.ls</span></li>
+                    <li><span class="text-white"><i class="bi bi-shield-check text-warning me-2"></i> Mountain Emergency: +266 2232 2011</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Explore Lesotho Tourism. All Rights Reserved. Khotso, Pula, Nala.</p>
+            <p>Designed with pride for the Mountain Kingdom in the Sky.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main Script -->
+<script src="js/script.js"></script>
+</body>
+</html>

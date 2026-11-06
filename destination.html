@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Destinations | Explore Lesotho</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-icon"><i class="bi bi-compass"></i></span>
+            <span>Explore Lesotho</span>
+            <span class="brand-badge d-none d-sm-inline">Kingdom in the Sky</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i>About</a></li>
+                <li class="nav-item"><a class="nav-link active" href="destination.html"><i class="bi bi-geo-alt me-1"></i>Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="service.html"><i class="bi bi-backpack2 me-1"></i>Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images me-1"></i>Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="contact.html" class="btn btn-nav-cta">
+                        <i class="bi bi-calendar-check me-1"></i>Book Trip
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+
+<main>
+<!-- PAGE BANNER -->
+<section class="page-banner">
+    <div class="container">
+        <div class="breadcrumb-custom justify-content-center">
+            <a href="index.html">Home</a>
+            <i class="bi bi-chevron-right text-white-50"></i>
+            <span>Destinations</span>
+        </div>
+        <h1>Tourist Destinations</h1>
+        <p>Discover thunderous waterfalls, dizzying mountain passes, and sacred alpine nature reserves.</p>
+    </div>
+</section>
+
+<!-- SEARCH & FILTER TOOLBAR -->
+<section class="container py-5">
+    <div class="search-filter-box">
+        <div class="row align-items-center g-3">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="search" id="destinationSearch" class="form-control border-start-0 ps-0"
+                           placeholder="Search by name, region, or activity (e.g., Falls, Sani, Dam)..." aria-label="Search destinations">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="filter-btn-group">
+                    <button class="btn btn-success filter-btn btn-sm" data-filter="all">All</button>
+                    <button class="btn btn-outline-success filter-btn btn-sm" data-filter="waterfall"><i class="bi bi-water me-1"></i>Waterfalls</button>
+                    <button class="btn btn-outline-success filter-btn btn-sm" data-filter="mountain"><i class="bi bi-triangle me-1"></i>Mountains</button>
+                    <button class="btn btn-outline-success filter-btn btn-sm" data-filter="park"><i class="bi bi-tree me-1"></i>Parks &amp; Lakes</button>
+                    <button class="btn btn-outline-success filter-btn btn-sm" data-filter="heritage"><i class="bi bi-bank me-1"></i>Culture &amp; Heritage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESTINATIONS GRID -->
+    <div class="row g-4" id="destinationList">
+        
+        <!-- 1. Maletsunyane Falls -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="waterfall">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="male.jfif" alt="Maletsunyane Falls cascading 192m into rocky gorge">
+                    <span class="card-badge bg-primary">Waterfall</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.9</span>
+                </div>
+                <div class="card-body">
+                    <h3>Maletsunyane Falls</h3>
+                    <p class="card-text">One of Africa's highest single-drop waterfalls, plunging 192 meters into a sheer basalt canyon. Famous for abseiling and misty rainbow views.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Semonkong</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 2,200m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Maletsunyane+Falls" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. Sani Pass -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="mountain">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="zz.jfif" alt="Sani Pass steep winding 4x4 switchback roads">
+                    <span class="card-badge bg-success">Mountain Pass</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 5.0</span>
+                </div>
+                <div class="card-body">
+                    <h3>Sani Pass Mountain Road</h3>
+                    <p class="card-text">The legendary 4x4 mountain pass scaling the Drakensberg escarpment up to 2,876m, home to the iconic 'Highest Pub in Africa'.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Mokhotlong Border</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 2,876m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Sani+Pass+Mountain+Safari" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. Sehlabathebe National Park -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="park">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="sehla.jfif" alt="Sehlabathebe National Park sandstone rock formations and rock pools">
+                    <span class="card-badge bg-warning text-dark">UNESCO Heritage</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.8</span>
+                </div>
+                <div class="card-body">
+                    <h3>Sehlabathebe National Park</h3>
+                    <p class="card-text">A remote, mystical wilderness of bizarre sandstone monoliths, wildflower meadows, rock pools, and San rock paintings.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Qacha's Nek</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 2,400m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Sehlabathebe+National+Park" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. Katse Dam -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="park">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="katse.jfif" alt="Katse Dam dramatic spillway and turquoise water">
+                    <span class="card-badge bg-info text-dark">Dam &amp; Lake</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.7</span>
+                </div>
+                <div class="card-body">
+                    <h3>Katse Dam Reservoir</h3>
+                    <p class="card-text">At 185 meters high, this engineering marvel forms a sapphire lake amidst towering peaks. Features guided dam wall interior tours and boat cruises.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Thaba-Tseka</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 2,050m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Katse+Dam" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 5. Thabana Ntlenyana -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="mountain">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="thaba.jfif" alt="Thabana Ntlenyana snow capped highest mountain">
+                    <span class="card-badge bg-danger">Highest Peak</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.9</span>
+                </div>
+                <div class="card-body">
+                    <h3>Thabana Ntlenyana Peak</h3>
+                    <p class="card-text">The "Beautiful Little Mountain" is the highest peak in Southern Africa at 3,482m. A premier trekking destination with views across mountain ranges.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Mokhotlong</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 3,482m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Thabana+Ntlenyana" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 6. Maletsunyane Gorge Aerial -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="waterfall">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="falls.jfif" alt="Aerial view of Maletsunyane River gorge and cloud mist">
+                    <span class="card-badge bg-primary">Canyon Gorge</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.9</span>
+                </div>
+                <div class="card-body">
+                    <h3>Maletsunyane Canyon &amp; Gorge</h3>
+                    <p class="card-text">The winding green canyon formed over millions of years by the Maletsunyane river. A haven for pony trekking, trout fishing, and wilderness trails.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Semonkong</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 2,150m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Maletsunyane+Falls" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 7. Basotho Hat & Cultural Crafts -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="heritage">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="maseru.jfif" alt="Basotho Hat Mokorotlo cultural center in Maseru">
+                    <span class="card-badge bg-secondary">Culture</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.6</span>
+                </div>
+                <div class="card-body">
+                    <h3>Basotho Hat Craft Centre</h3>
+                    <p class="card-text">Maseru's architectural icon designed in the exact conical shape of a Mokorotlo hat. Browse authentic woven baskets, tapestries, and clay pottery.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Maseru City</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Crafts &amp; Gifts</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Thaba+Bosiu+Cultural+Village" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 8. Senqu River Canyon Loop -->
+        <article class="col-md-6 col-lg-4 destination-card" data-category="mountain">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="leso.jfif" alt="Senqu River canyon loop and mountain horseshoe view">
+                    <span class="card-badge bg-success">Scenic Lookout</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.8</span>
+                </div>
+                <div class="card-body">
+                    <h3>Senqu (Orange) River Canyon</h3>
+                    <p class="card-text">The headwaters of South Africa's longest river meanders majestically through ancient volcanic plateaus, forming awe-inspiring horseshoe canyons.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span><i class="bi bi-geo-alt-fill text-success"></i> Southern Highlands</span>
+                        <span><i class="bi bi-speedometer2 text-success"></i> Alt: 2,300m</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <a href="contact.html?dest=Tsehlanyane+National+Park" class="btn btn-success btn-sm flex-grow-1">
+                            <i class="bi bi-calendar-plus"></i> Book Tour
+                        </a>
+                        <a href="gallery.html" class="btn btn-outline-success btn-sm" title="View Photos">
+                            <i class="bi bi-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- No Results Placeholder -->
+    <div id="noResults" class="mt-4" hidden></div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="container text-center py-5">
+    <div class="p-4 p-md-5 rounded-4 bg-surface border">
+        <h3 class="fw-bold mb-2">Can't decide which destination to visit?</h3>
+        <p class="text-muted mb-4">Let our local destination planners design a customized multi-day itinerary combining waterfalls, passes, and mountain lodges.</p>
+        <a href="contact.html" class="btn btn-warning btn-lg"><i class="bi bi-chat-text-fill me-1"></i> Request Custom Itinerary</a>
+    </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <span class="brand-icon"><i class="bi bi-compass"></i></span>
+                    <span>Explore Lesotho</span>
+                </div>
+                <p class="footer-description">The official tourism inspiration portal for the Kingdom of Lesotho. Discover untouched mountains, rich Basotho heritage, and alpine adventures.</p>
+                <div class="footer-social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Destinations</a></li>
+                    <li><a href="service.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                    <li><a href="gallery.html"><i class="bi bi-chevron-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact &amp; Booking</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Top Destinations</h5>
+                <ul class="footer-links">
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Maletsunyane Falls</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Katse Dam</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sehlabathebe Park</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Thabana Ntlenyana</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sani Pass Road</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Tourism Helpline</h5>
+                <ul class="footer-links">
+                    <li><span class="text-white"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Maseru, Lesotho</span></li>
+                    <li><span class="text-white"><i class="bi bi-telephone-fill text-warning me-2"></i> +266 2231 2427</span></li>
+                    <li><span class="text-white"><i class="bi bi-envelope-fill text-warning me-2"></i> info@explorelesotho.gov.ls</span></li>
+                    <li><span class="text-white"><i class="bi bi-shield-check text-warning me-2"></i> Mountain Emergency: +266 2232 2011</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Explore Lesotho Tourism. All Rights Reserved. Khotso, Pula, Nala.</p>
+            <p>Designed with pride for the Mountain Kingdom in the Sky.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main Script -->
+<script src="js/script.js"></script>
+</body>
+</html>

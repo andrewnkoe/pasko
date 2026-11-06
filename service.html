@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation & Activities | Explore Lesotho</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-icon"><i class="bi bi-compass"></i></span>
+            <span>Explore Lesotho</span>
+            <span class="brand-badge d-none d-sm-inline">Kingdom in the Sky</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i>About</a></li>
+                <li class="nav-item"><a class="nav-link" href="destination.html"><i class="bi bi-geo-alt me-1"></i>Destinations</a></li>
+                <li class="nav-item"><a class="nav-link active" href="service.html"><i class="bi bi-backpack2 me-1"></i>Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images me-1"></i>Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="contact.html" class="btn btn-nav-cta">
+                        <i class="bi bi-calendar-check me-1"></i>Book Trip
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+
+<main>
+<!-- PAGE BANNER -->
+<section class="page-banner">
+    <div class="container">
+        <div class="breadcrumb-custom justify-content-center">
+            <a href="index.html">Home</a>
+            <i class="bi bi-chevron-right text-white-50"></i>
+            <span>Services &amp; Stays</span>
+        </div>
+        <h1>Accommodation &amp; Activities</h1>
+        <p>From luxury mountain chalets to epic pony treks and high-altitude adventures.</p>
+    </div>
+</section>
+
+<!-- ACCOMMODATION SECTION -->
+<section class="container py-5">
+    <div class="section-header">
+        <span class="section-pill"><i class="bi bi-houses-fill"></i> Where to Stay</span>
+        <h2 class="section-title">Handpicked Accommodations</h2>
+        <p class="section-subtitle">Comfortable retreats tailored for scenic relaxation, alpine wellness, and wilderness immersion.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- 1. Luxury Hotels -->
+        <article class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="hotel.jfif" alt="Luxury hotel and casino with swimming pool and mountain backdrop">
+                    <span class="card-badge bg-primary">Luxury Resort</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.8</span>
+                </div>
+                <div class="card-body">
+                    <h3>Luxury Hotels &amp; Resorts</h3>
+                    <p class="card-text">Premier urban hospitality such as Avani Lesotho Hotel &amp; Casino. Offers heated swimming pools, international dining, executive spa, and panoramic views of Maseru.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge bg-light text-dark border"><i class="bi bi-wifi text-success me-1"></i> Free Wi-Fi</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-water text-primary me-1"></i> Pool &amp; Spa</span>
+                        <span class="text-success fw-bold">From M1,850/n</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <button class="btn btn-success btn-sm flex-grow-1" onclick="showService('Luxury Hotels')">
+                            <i class="bi bi-info-circle"></i> View Details
+                        </button>
+                        <a href="contact.html?service=Luxury+Hotels" class="btn btn-warning btn-sm">
+                            <i class="bi bi-calendar-check"></i> Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. Mountain Lodges -->
+        <article class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="lodge.jfif" alt="Maliba Mountain Lodge chalets perched in alpine forest valley">
+                    <span class="card-badge bg-success">Eco-Alpine Lodge</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.9</span>
+                </div>
+                <div class="card-body">
+                    <h3>Maloti Mountain Lodges</h3>
+                    <p class="card-text">Thatched mountain chalets like Maliba Lodge nestled inside Ts'ehlanyane National Park. Featuring stone fireplaces, private decks, and indigenous alpine forests.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge bg-light text-dark border"><i class="bi bi-fire text-danger me-1"></i> Fireplace</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-tree text-success me-1"></i> Forest Trails</span>
+                        <span class="text-success fw-bold">From M1,400/n</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <button class="btn btn-success btn-sm flex-grow-1" onclick="showService('Mountain Lodges')">
+                            <i class="bi bi-info-circle"></i> View Details
+                        </button>
+                        <a href="contact.html?service=Mountain+Lodges" class="btn btn-warning btn-sm">
+                            <i class="bi bi-calendar-check"></i> Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. Camping -->
+        <article class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="camp.jfif" alt="4x4 overland campsite by mountain river and peaks">
+                    <span class="card-badge bg-warning text-dark">Adventure Camping</span>
+                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.7</span>
+                </div>
+                <div class="card-body">
+                    <h3>High-Altitude Camping</h3>
+                    <p class="card-text">Designated 4x4 campsites beside mountain rivers and escarpment rims near Katse Dam and Sani Top. Unrivaled stargazing under the clearest southern skies.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge bg-light text-dark border"><i class="bi bi-truck text-dark me-1"></i> 4x4 Access</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-moon-stars text-info me-1"></i> Stargazing</span>
+                        <span class="text-success fw-bold">From M250/n</span>
+                    </div>
+                    <div class="d-flex gap-2 mt-auto">
+                        <button class="btn btn-success btn-sm flex-grow-1" onclick="showService('Camping')">
+                            <i class="bi bi-info-circle"></i> View Details
+                        </button>
+                        <a href="contact.html?service=Adventure+Camping" class="btn btn-warning btn-sm">
+                            <i class="bi bi-calendar-check"></i> Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- TOURISM ACTIVITIES SECTION -->
+<section class="py-5" style="background-color: var(--bg-surface-alt);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-pill"><i class="bi bi-compass-fill"></i> Adventures</span>
+            <h2 class="section-title">Signature Mountain Experiences</h2>
+            <p class="section-subtitle">Immerse yourself in authentic cultural treks and adrenaline-fueled expeditions.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- 1. Horse Riding -->
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-icon"><i class="bi bi-compass"></i></div>
+                    <h3>Basotho Pony Trekking</h3>
+                    <p>Traverse steep mountain shale and cross crystal streams on sure-footed Basotho ponies. Guided half-day to multi-day village treks available.</p>
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">From M350 / person</span>
+                        <button class="btn btn-sm btn-outline-success" onclick="showService('Horse Riding')">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Hiking -->
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-icon"><i class="bi bi-triangle"></i></div>
+                    <h3>High Alpine Hiking</h3>
+                    <p>From gentle day trails in Sehlabathebe to scaling Thabana Ntlenyana (3,482m). Certified mountain guides provide navigation and safety.</p>
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">From M300 / person</span>
+                        <button class="btn btn-sm btn-outline-success" onclick="showService('Hiking')">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Culture -->
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-icon"><i class="bi bi-people"></i></div>
+                    <h3>Living Cultural Immersion</h3>
+                    <p>Visit historic Thaba Bosiu, understand Basotho blanket traditions, experience village life, and taste traditional home-cooked cuisine.</p>
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">From M400 / person</span>
+                        <button class="btn btn-sm btn-outline-success" onclick="showService('Cultural Tours')">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Waterfall Abseil -->
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-icon"><i class="bi bi-lightning-charge"></i></div>
+                    <h3>Maletsunyane Abseil (204m)</h3>
+                    <p>Certified Guinness World Record holder for the longest commercial single-drop abseil alongside the roaring Maletsunyane waterfall.</p>
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">From M950 / person</span>
+                        <a href="contact.html?service=Maletsunyane+Abseil" class="btn btn-sm btn-outline-success">Inquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Trout Fishing -->
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-icon"><i class="bi bi-water"></i></div>
+                    <h3>Pristine Fly-Fishing</h3>
+                    <p>Cast your fly rod for wild rainbow and brown trout in clear glacial rivers flowing out of the Maloti Drakensberg highlands.</p>
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">From M380 / day</span>
+                        <a href="contact.html?service=Fly+Fishing" class="btn btn-sm btn-outline-success">Inquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 4x4 Mountain Safaris -->
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-icon"><i class="bi bi-truck"></i></div>
+                    <h3>4x4 Mountain Safaris</h3>
+                    <p>Conquer the legendary switchbacks of Sani Pass and high passes with professional 4WD overland vehicles and drivers.</p>
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-bold">From M750 / person</span>
+                        <a href="contact.html?service=4x4+Mountain+Safari" class="btn btn-sm btn-outline-success">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POPULAR TOUR PACKAGES MATRIX -->
+<section class="container py-5">
+    <div class="section-header">
+        <span class="section-pill"><i class="bi bi-box-seam"></i> Curated Itineraries</span>
+        <h2 class="section-title">Popular All-Inclusive Tour Packages</h2>
+        <p class="section-subtitle">Hassle-free guided itineraries with transport, stays, and permits covered.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Package 1 -->
+        <div class="col-lg-4">
+            <div class="card p-4 border h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-secondary-subtle text-secondary fw-bold">Weekend Getaway</span>
+                    <span class="fs-4 fw-bold text-success">M2,450</span>
+                </div>
+                <h4>3-Day Semonkong &amp; Falls</h4>
+                <p class="text-muted small">Transport from Maseru, 2 nights lodge stay, guided pony trek to Maletsunyane Falls, and local braai dinner.</p>
+                <ul class="list-unstyled small text-muted my-3">
+                    <li><i class="bi bi-check2 text-success me-2"></i> 4x4 Return Transfers</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> 2 Nights Mountain Chalet</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> Pony Trek with Guide</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> All National Park Entry Fees</li>
+                </ul>
+                <a href="contact.html?service=3-Day+Semonkong+Tour" class="btn btn-outline-success w-100 mt-auto">Book This Package</a>
+            </div>
+        </div>
+
+        <!-- Package 2 (Featured) -->
+        <div class="col-lg-4">
+            <div class="card p-4 border-2 border-warning h-100 position-relative shadow-md">
+                <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold px-3 py-1 rounded-bottom-start small">Most Popular</span>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-warning-subtle text-dark fw-bold">5-Day Grand Tour</span>
+                    <span class="fs-4 fw-bold text-success">M5,200</span>
+                </div>
+                <h4>5-Day Grand Kingdom Circuit</h4>
+                <p class="text-muted small">Comprehensive journey covering Sani Pass, Katse Dam interior tour, Maletsunyane, and Ts'ehlanyane reserve.</p>
+                <ul class="list-unstyled small text-muted my-3">
+                    <li><i class="bi bi-check2 text-success me-2"></i> Private 4x4 &amp; Driver Guide</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> 4 Nights Premium Lodges</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> Katse Dam Boat Cruise</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> Breakfast &amp; Dinners Included</li>
+                </ul>
+                <a href="contact.html?service=5-Day+Grand+Kingdom+Tour" class="btn btn-warning w-100 mt-auto">Book This Package</a>
+            </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="col-lg-4">
+            <div class="card p-4 border h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-primary-subtle text-primary fw-bold">Adventure Trek</span>
+                    <span class="fs-4 fw-bold text-success">M3,800</span>
+                </div>
+                <h4>4-Day Thabana Ntlenyana Trek</h4>
+                <p class="text-muted small">High-altitude expedition to conquer the rooftop of Southern Africa (3,482m) with pack ponies and guides.</p>
+                <ul class="list-unstyled small text-muted my-3">
+                    <li><i class="bi bi-check2 text-success me-2"></i> Mountain Guide &amp; Pack Ponies</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> Summit Certificate</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> All Expedition Camping Gear</li>
+                    <li><i class="bi bi-check2 text-success me-2"></i> Full Board Mountain Meals</li>
+                </ul>
+                <a href="contact.html?service=4-Day+Thabana+Ntlenyana+Trek" class="btn btn-outline-success w-100 mt-auto">Book This Package</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE INFORMATION MODAL -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title fw-bold" id="serviceTitle">Service Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4" id="serviceDescription">
+                <!-- Injected dynamically via showService() -->
+            </div>
+            <div class="modal-footer border-0 bg-light">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                <a href="contact.html" id="serviceBookLink" class="btn btn-success btn-sm">
+                    <i class="bi bi-calendar2-check me-1"></i> Reserve This Experience
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <span class="brand-icon"><i class="bi bi-compass"></i></span>
+                    <span>Explore Lesotho</span>
+                </div>
+                <p class="footer-description">The official tourism inspiration portal for the Kingdom of Lesotho. Discover untouched mountains, rich Basotho heritage, and alpine adventures.</p>
+                <div class="footer-social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Destinations</a></li>
+                    <li><a href="service.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                    <li><a href="gallery.html"><i class="bi bi-chevron-right"></i> Photo Gallery</a></li>
+                    <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact &amp; Booking</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Top Destinations</h5>
+                <ul class="footer-links">
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Maletsunyane Falls</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Katse Dam</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sehlabathebe Park</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Thabana Ntlenyana</a></li>
+                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sani Pass Road</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Tourism Helpline</h5>
+                <ul class="footer-links">
+                    <li><span class="text-white"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Maseru, Lesotho</span></li>
+                    <li><span class="text-white"><i class="bi bi-telephone-fill text-warning me-2"></i> +266 2231 2427</span></li>
+                    <li><span class="text-white"><i class="bi bi-envelope-fill text-warning me-2"></i> info@explorelesotho.gov.ls</span></li>
+                    <li><span class="text-white"><i class="bi bi-shield-check text-warning me-2"></i> Mountain Emergency: +266 2232 2011</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Explore Lesotho Tourism. All Rights Reserved. Khotso, Pula, Nala.</p>
+            <p>Designed with pride for the Mountain Kingdom in the Sky.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main Script -->
+<script src="js/script.js"></script>
+</body>
+</html>
