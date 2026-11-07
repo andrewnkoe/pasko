@@ -1,338 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Lesotho | The Kingdom in the Sky | Tourism & Travel</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>Discover Lesotho - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEADER & NAVIGATION -->
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <span class="brand-icon"><i class="bi bi-compass"></i></span>
-            <span>Explore Lesotho</span>
-            <span class="brand-badge d-none d-sm-inline">Kingdom in the Sky</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.html">🏔 Discover Lesotho</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link active" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i>About</a></li>
-                <li class="nav-item"><a class="nav-link" href="destination.html"><i class="bi bi-geo-alt me-1"></i>Destinations</a></li>
-                <li class="nav-item"><a class="nav-link" href="service.html"><i class="bi bi-backpack2 me-1"></i>Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images me-1"></i>Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-1"></i>Contact</a></li>
-                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                    <a href="contact.html" class="btn btn-nav-cta">
-                        <i class="bi bi-calendar-check me-1"></i>Book Trip
-                    </a>
-                </li>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto me-3">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
+            <button id="darkToggle">🌙 Dark Mode</button>
         </div>
     </div>
 </nav>
 </header>
 
 <main>
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-pill">
-            <i class="bi bi-award-fill text-warning"></i>
-            The Rooftop of Southern Africa
-        </div>
-        <h1>Welcome to Lesotho <br><span>The Kingdom in the Sky</span></h1>
-        <p>Soar above the clouds across rugged mountain peaks, thundering waterfalls, living Basotho traditions, and boundless alpine adventure.</p>
-        <div class="hero-actions">
-            <a href="destination.html" class="btn btn-warning btn-lg">
-                <i class="bi bi-compass-fill"></i> Explore Destinations
-            </a>
-            <a href="contact.html" class="btn btn-outline-light btn-lg">
-                <i class="bi bi-calendar2-week"></i> Plan Your Tour
-            </a>
-        </div>
 
-        <!-- Hero Stats Strip -->
-        <div class="hero-stats">
-            <div class="stat-item">
-                <h4>3,482 m</h4>
-                <p>Highest Peak</p>
-            </div>
-            <div class="stat-item">
-                <h4>192 m</h4>
-                <p>Single-Drop Falls</p>
-            </div>
-            <div class="stat-item">
-                <h4>300+</h4>
-                <p>Sunny Days</p>
-            </div>
-            <div class="stat-item">
-                <h4>1,000 m+</h4>
-                <p>Lowest Altitude</p>
-            </div>
-        </div>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <span class="badge-pill">The Mountain Kingdom</span>
+        <h1>Welcome to Lesotho</h1>
+        <p>Discover breathtaking landscapes, rich culture and unforgettable adventures.</p>
+        <a href="destinations.html" class="btn btn-warning me-2">Explore Destinations</a>
+        <a href="contact.html" class="btn btn-outline-light">Book a Trip</a>
     </div>
 </section>
 
-<!-- SIGNATURE DESTINATIONS -->
-<section class="container py-5">
-    <div class="section-header">
-        <span class="section-pill"><i class="bi bi-geo-fill"></i> Iconic Highlights</span>
-        <h2 class="section-title">Discover the Best of Lesotho</h2>
-        <p class="section-subtitle">From monumental engineering to sacred alpine waterfalls and UNESCO world heritage reserves.</p>
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3 stat-item reveal">
+                <h3 class="counter" data-target="3482">0</h3>
+                <p>Metres — Highest Peak</p>
+            </div>
+            <div class="col-6 col-md-3 stat-item reveal">
+                <h3 class="counter" data-target="6">0</h3>
+                <p>Top Destinations</p>
+            </div>
+            <div class="col-6 col-md-3 stat-item reveal">
+                <h3 class="counter" data-target="12">0</h3>
+                <p>Months of Beauty</p>
+            </div>
+            <div class="col-6 col-md-3 stat-item reveal">
+                <h3>100%</h3>
+                <p>Worth the Trip</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="container my-5">
+    <div class="section-header reveal">
+        <h2>Discover Our Beautiful Country</h2>
+        <p>Lesotho is a landlocked mountain kingdom surrounded by South Africa, offering stunning scenery, vibrant culture and exciting adventures.</p>
     </div>
 
     <div class="row g-4">
-        <!-- Maletsunyane Falls -->
-        <article class="col-md-6 col-lg-3">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="male.jfif" alt="Maletsunyane Falls cascading into canyon">
-                    <span class="card-badge">Waterfall</span>
-                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.9</span>
-                </div>
+        <div class="col-md-4 reveal">
+            <article class="card">
+                <img src="highlands.jpeg" class="card-img-top" alt="Beautiful mountains" loading="lazy">
                 <div class="card-body">
-                    <h3>Maletsunyane Falls</h3>
-                    <p class="card-text">One of Africa's highest single-drop waterfalls, plummeting 192 meters near Semonkong.</p>
-                    <div class="card-meta">
-                        <span><i class="bi bi-geo-alt"></i> Semonkong</span>
-                        <a href="destination.html" class="ms-auto text-success fw-bold">Explore <i class="bi bi-arrow-right"></i></a>
-                    </div>
+                    <span class="card-tag"> Scenery</span>
+                    <h3>Mountains</h3>
+                    <p>Hike towering peaks and experience Lesotho's dramatic highland landscapes.</p>
+                    <a href="destinations.html" class="card-link">Learn more →</a>
                 </div>
-            </div>
-        </article>
-
-        <!-- Thabana Ntlenyana -->
-        <article class="col-md-6 col-lg-3">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="thaba.jfif" alt="Thabana Ntlenyana snowy peaks">
-                    <span class="card-badge">Mountain</span>
-                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.9</span>
-                </div>
+            </article>
+        </div>
+        <div class="col-md-4 reveal">
+            <article class="card">
+                <img src="maletsunyane.jpeg" class="card-img-top" alt="Beautiful nature" loading="lazy">
                 <div class="card-body">
-                    <h3>Thabana Ntlenyana</h3>
-                    <p class="card-text">The highest summit in Southern Africa at 3,482 meters, offering snow and endless horizons.</p>
-                    <div class="card-meta">
-                        <span><i class="bi bi-geo-alt"></i> Mokhotlong</span>
-                        <a href="destination.html" class="ms-auto text-success fw-bold">Explore <i class="bi bi-arrow-right"></i></a>
-                    </div>
+                    <span class="card-tag"> Nature</span>
+                    <h3>Nature</h3>
+                    <p>Discover pristine waterfalls, verdant valleys and unique wildlife.</p>
+                    <a href="destinations.html" class="card-link">Learn more →</a>
                 </div>
-            </div>
-        </article>
-
-        <!-- Sehlabathebe National Park -->
-        <article class="col-md-6 col-lg-3">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="sehla.jfif" alt="Sehlabathebe National Park sandstone formations and water pools">
-                    <span class="card-badge">National Park</span>
-                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.8</span>
-                </div>
+            </article>
+        </div>
+        <div class="col-md-4 reveal">
+            <article class="card">
+                <img src="ski.jpeg" class="card-img-top" alt="Hiking activity" loading="lazy">
                 <div class="card-body">
-                    <h3>Sehlabathebe Park</h3>
-                    <p class="card-text">A UNESCO World Heritage marvel featuring sandstone rock formations and rare alpine wildlife.</p>
-                    <div class="card-meta">
-                        <span><i class="bi bi-geo-alt"></i> Qacha's Nek</span>
-                        <a href="destination.html" class="ms-auto text-success fw-bold">Explore <i class="bi bi-arrow-right"></i></a>
-                    </div>
+                    <span class="card-tag"> Adventure</span>
+                    <h3>Adventure</h3>
+                    <p>From skiing to horse riding — Lesotho has thrills for every traveller.</p>
+                    <a href="accommodation.html" class="card-link">Learn more →</a>
                 </div>
-            </div>
-        </article>
-
-        <!-- Katse Dam -->
-        <article class="col-md-6 col-lg-3">
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="katse.jfif" alt="Katse Dam reservoir and spillway">
-                    <span class="card-badge">Engineering</span>
-                    <span class="card-rating"><i class="bi bi-star-fill text-warning"></i> 4.7</span>
-                </div>
-                <div class="card-body">
-                    <h3>Katse Dam</h3>
-                    <p class="card-text">Africa's second largest arch dam, nestled in turquoise waters and dramatic mountain fjords.</p>
-                    <div class="card-meta">
-                        <span><i class="bi bi-geo-alt"></i> Thaba-Tseka</span>
-                        <a href="destination.html" class="ms-auto text-success fw-bold">Explore <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
-
-    <div class="text-center mt-5">
-        <a href="destination.html" class="btn btn-outline-success btn-lg">
-            <i class="bi bi-grid-3x3-gap-fill me-1"></i> View All Tourist Destinations
-        </a>
+            </article>
+        </div>
     </div>
 </section>
 
-<!-- WHY VISIT LESOTHO / 4 PILLARS -->
-<section class="py-5" style="background-color: var(--bg-surface-alt);">
+
+<section class="why-banner reveal">
     <div class="container">
-        <div class="section-header">
-            <span class="section-pill"><i class="bi bi-stars"></i> Why Visit</span>
-            <h2 class="section-title">An Alpine Paradise Unlike Any Other</h2>
-            <p class="section-subtitle">Discover what makes Lesotho one of Africa's most unique and rewarding travel destinations.</p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="info-box">
-                    <div class="info-box-icon">
-                        <i class="bi bi-cloud-sun"></i>
-                    </div>
-                    <h3>Sky High Elevation</h3>
-                    <p>The only independent nation in the world whose entire territory sits over 1,000 meters above sea level.</p>
-                </div>
+        <div class="row align-items-center g-4">
+            <div class="col-md-7">
+                <h2>Why Visit the Kingdom in the Sky?</h2>
+                <ul class="why-list">
+                    <li> One of only three countries entirely within another country</li>
+                    <li> 100% of territory sits above 1,000 m — the world's highest low point</li>
+                    <li> Africa's only ski resort at AfriSki (3,222 m)</li>
+                    <li> Home to Maletsunyane Falls — one of Africa's highest single-drop waterfalls</li>
+                    <li> Ride the legendary Basotho pony through mountain villages</li>
+                </ul>
             </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="info-box">
-                    <div class="info-box-icon">
-                        <i class="bi bi-flower1"></i>
-                    </div>
-                    <h3>Pony Trekking</h3>
-                    <p>Traverse mountain passes on hardy Basotho ponies, following trails through untouched villages and valleys.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="info-box">
-                    <div class="info-box-icon">
-                        <i class="bi bi-snow"></i>
-                    </div>
-                    <h3>Snow & Alpine Thrills</h3>
-                    <p>Experience genuine winter snowscapes, skiing at Afriski, and world-record high-altitude abseiling.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="info-box">
-                    <div class="info-box-icon">
-                        <i class="bi bi-shield-check"></i>
-                    </div>
-                    <h3>Peace & Hospitality</h3>
-                    <p>Known for its peaceful culture centered around the national motto: <em>Khotso, Pula, Nala</em> (Peace, Rain, Prosperity).</p>
-                </div>
+            <div class="col-md-5 text-center">
+                <a href="contact.html" class="btn btn-warning btn-lg px-5 py-3">Plan My Trip ✈️</a>
+                <p class="mt-3 why-sub">We'll help you build the perfect itinerary</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CULTURAL HERITAGE SPOTLIGHT -->
-<section class="container py-5">
-    <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-            <div class="position-relative">
-                <img src="food.jfif" class="img-fluid rounded-4 shadow-lg" alt="Basotho cultural cooking and traditional attire">
-                <div class="position-absolute bottom-0 start-0 m-3 p-3 bg-dark bg-opacity-75 text-white rounded-3 backdrop-blur d-none d-sm-block">
-                    <h6 class="mb-0 fw-bold"><i class="bi bi-heart-fill text-danger me-1"></i> Living Basotho Culture</h6>
-                    <small>Traditions passed down through centuries</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <span class="section-pill"><i class="bi bi-bank"></i> Heritage & Tradition</span>
-            <h2 class="section-title">The Spirit of the Basotho People</h2>
-            <p>Lesotho is proudly unified under the legacy of King Moshoeshoe I, who brought together clans in the 19th century upon the natural fortress of Thaba Bosiu.</p>
-            
-            <div class="d-flex gap-3 mb-3">
-                <div class="text-success fs-3"><i class="bi bi-check-circle-fill"></i></div>
-                <div>
-                    <h5 class="mb-1">The Seanamarena Blanket</h5>
-                    <p class="mb-0 text-muted">More than warm outerwear, each Basotho blanket holds deep symbolic cultural meanings of status and milestones.</p>
-                </div>
-            </div>
 
-            <div class="d-flex gap-3 mb-3">
-                <div class="text-success fs-3"><i class="bi bi-check-circle-fill"></i></div>
-                <div>
-                    <h5 class="mb-1">The Mokorotlo Hat</h5>
-                    <p class="mb-0 text-muted">A conical woven straw hat inspired by the sacred mountain Qiloane, proudly displayed on the national flag.</p>
-                </div>
-            </div>
-
-            <div class="d-flex gap-3 mb-4">
-                <div class="text-success fs-3"><i class="bi bi-check-circle-fill"></i></div>
-                <div>
-                    <h5 class="mb-1">Rich Mountain Cuisine</h5>
-                    <p class="mb-0 text-muted">Savor slow-cooked Papa, Morogo (wild spinach), roasted lamb, and homemade mountain bread.</p>
-                </div>
-            </div>
-
-            <a href="about.html" class="btn btn-success">
-                <i class="bi bi-book-half me-1"></i> Learn More About Our History
-            </a>
-        </div>
+<section class="container my-5">
+    <div class="section-header reveal">
+        <span class="badge-pill">Traveller Stories</span>
+        <h2>What Visitors Say</h2>
+        <p>Hear from people who have explored the Mountain Kingdom.</p>
     </div>
-</section>
-
-<!-- TRAVELER TESTIMONIALS -->
-<section class="py-5" style="background-color: var(--bg-surface-alt);">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-pill"><i class="bi bi-chat-heart"></i> Guest Reviews</span>
-            <h2 class="section-title">Loved by Travelers Worldwide</h2>
-            <p class="section-subtitle">Real experiences from visitors exploring the Mountain Kingdom.</p>
+    <div class="row g-4">
+        <div class="col-md-4 reveal">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Lesotho completely blew my expectations. Sani Pass was breathtaking and the Basotho people were the most welcoming I've ever met."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JD</div>
+                    <div>
+                        <strong>James D.</strong>
+                        <span>Cape Town, South Africa</span>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <div class="text-warning mb-2 fs-5">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <p class="card-text">"Maletsunyane Falls took my breath away. Doing the abseil and sleeping in the Semonkong valley was the highlight of our African trip."</p>
-                    <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
-                        <div class="brand-icon fs-6">JM</div>
-                        <div>
-                            <h6 class="mb-0 fw-bold">James Miller</h6>
-                            <small class="text-muted">United Kingdom • Trekked in Nov 2025</small>
-                        </div>
+        <div class="col-md-4 reveal">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Skiing in Africa? I never thought it was possible. AfriSki was absolutely incredible. The views from 3,200 m are unlike anything else."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ML</div>
+                    <div>
+                        <strong>Maria L.</strong>
+                        <span>Johannesburg, South Africa</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <div class="text-warning mb-2 fs-5">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <p class="card-text">"Driving up Sani Pass in a 4x4 and drinking at the highest pub in Africa is an adventure you must experience once in life. Pure magic."</p>
-                    <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
-                        <div class="brand-icon fs-6">SK</div>
-                        <div>
-                            <h6 class="mb-0 fw-bold">Sarah &amp; Kevin</h6>
-                            <small class="text-muted">South Africa • Visited in Jan 2026</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <div class="text-warning mb-2 fs-5">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <p class="card-text">"The Basotho hospitality is warm and authentic. The silence of Sehlabathebe under millions of stars was deeply spiritual."</p>
-                    <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
-                        <div class="brand-icon fs-6">LS</div>
-                        <div>
-                            <h6 class="mb-0 fw-bold">Lukas Schmidt</h6>
-                            <small class="text-muted">Germany • Visited in Dec 2025</small>
-                        </div>
+        </div>
+        <div class="col-md-4 reveal">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Maletsunyane Falls left me speechless. The hike down and the horse ride back through the village were the highlights of my trip."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">TM</div>
+                    <div>
+                        <strong>Thabo M.</strong>
+                        <span>Maseru, Lesotho</span>
                     </div>
                 </div>
             </div>
@@ -340,85 +184,41 @@
     </div>
 </section>
 
-<!-- CALL TO ACTION BANNER -->
-<section class="container py-5">
-    <div class="p-5 rounded-4 text-center text-white" style="background: linear-gradient(135deg, #0e3020 0%, #174d34 50%, #0d4b8e 100%);">
-        <h2 class="display-6 fw-bold mb-3 text-white">Ready for Your Sky Kingdom Adventure?</h2>
-        <p class="lead mb-4 mx-auto" style="max-width: 650px; color: #cbd5e1;">Our local travel specialists are ready to help you customize the perfect itinerary, accommodations, and guided tours.</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="contact.html" class="btn btn-warning btn-lg">
-                <i class="bi bi-calendar-check-fill me-1"></i> Book Your Tour Now
-            </a>
-            <a href="service.html" class="btn btn-outline-light btn-lg">
-                <i class="bi bi-binoculars me-1"></i> Browse Services
-            </a>
-        </div>
-    </div>
-</section>
 </main>
 
-<!-- FOOTER -->
+
+<button id="backToTop" title="Back to top">↑</button>
+
 <footer>
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-brand">
-                    <span class="brand-icon"><i class="bi bi-compass"></i></span>
-                    <span>Explore Lesotho</span>
-                </div>
-                <p class="footer-description">The official tourism inspiration portal for the Kingdom of Lesotho. Discover untouched mountains, rich Basotho heritage, and alpine adventures.</p>
-                <div class="footer-social-links">
-                    <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-btn" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                </div>
+    <div class="container footer-inner">
+        <div class="row g-3 justify-content-between align-items-start">
+            <div class="col-md-4">
+                <div class="footer-brand">🏔 Discover Lesotho</div>
+                <p class="footer-desc">Your gateway to the Kingdom in the Sky. Explore, experience, and fall in love with Lesotho.</p>
             </div>
-
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-heading">Quick Links</h5>
+            <div class="col-md-3">
+                <h6 class="footer-heading">Quick Links</h6>
                 <ul class="footer-links">
-                    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                    <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Destinations</a></li>
-                    <li><a href="service.html"><i class="bi bi-chevron-right"></i> Services</a></li>
-                    <li><a href="gallery.html"><i class="bi bi-chevron-right"></i> Photo Gallery</a></li>
-                    <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact &amp; Booking</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Book a Trip</a></li>
                 </ul>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <h5 class="footer-heading">Top Destinations</h5>
-                <ul class="footer-links">
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Maletsunyane Falls</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Katse Dam</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sehlabathebe Park</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Thabana Ntlenyana</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sani Pass Road</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <h5 class="footer-heading">Tourism Helpline</h5>
-                <ul class="footer-links">
-                    <li><span class="text-white"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Maseru, Lesotho</span></li>
-                    <li><span class="text-white"><i class="bi bi-telephone-fill text-warning me-2"></i> +266 2231 2427</span></li>
-                    <li><span class="text-white"><i class="bi bi-envelope-fill text-warning me-2"></i> info@explorelesotho.gov.ls</span></li>
-                    <li><span class="text-white"><i class="bi bi-shield-check text-warning me-2"></i> Mountain Emergency: +266 2232 2011</span></li>
-                </ul>
+            <div class="col-md-3">
+                <h6 class="footer-heading">Contact</h6>
+                <p class="footer-contact"> Maseru, Lesotho</p>
+                <p class="footer-contact"> +266 2231 2345</p>
+                <p class="footer-contact">info@discoverlesotho.ls</p>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Explore Lesotho Tourism. All Rights Reserved. Khotso, Pula, Nala.</p>
-            <p>Designed with pride for the Mountain Kingdom in the Sky.</p>
-        </div>
+        <hr class="footer-divider">
+        <p class="footer-copy">&copy; 2026 Discover Lesotho Tourism Website. All rights reserved.</p>
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Main Script -->
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,352 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Lesotho | History, Culture & Fast Facts</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>About Lesotho - Discover Lesotho</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEADER & NAVIGATION -->
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <span class="brand-icon"><i class="bi bi-compass"></i></span>
-            <span>Explore Lesotho</span>
-            <span class="brand-badge d-none d-sm-inline">Kingdom in the Sky</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.html"> Discover Lesotho</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="about.html"><i class="bi bi-info-circle me-1"></i>About</a></li>
-                <li class="nav-item"><a class="nav-link" href="destination.html"><i class="bi bi-geo-alt me-1"></i>Destinations</a></li>
-                <li class="nav-item"><a class="nav-link" href="service.html"><i class="bi bi-backpack2 me-1"></i>Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images me-1"></i>Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-1"></i>Contact</a></li>
-                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                    <a href="contact.html" class="btn btn-nav-cta">
-                        <i class="bi bi-calendar-check me-1"></i>Book Trip
-                    </a>
-                </li>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto me-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
+            <button id="darkToggle"> Dark Mode</button>
         </div>
     </div>
 </nav>
 </header>
 
 <main>
-<!-- PAGE BANNER -->
-<section class="page-banner">
-    <div class="container">
-        <div class="breadcrumb-custom justify-content-center">
-            <a href="index.html">Home</a>
-            <i class="bi bi-chevron-right text-white-50"></i>
-            <span>About</span>
-        </div>
+<section class="container my-5">
+    <div class="section-header reveal">
+        <span class="badge-pill">Our Story</span>
         <h1>About Lesotho</h1>
-        <p>A high-altitude mountain monarchy rich in heritage, natural wonders, and untamed beauty.</p>
+        <p>Learn about the land, the people and the culture of the Mountain Kingdom.</p>
+    </div>
+
+    <div class="row align-items-center g-5">
+        <div class="col-md-6 reveal">
+            <img src="lesotho.jpeg?w=800"
+                 class="img-fluid about-img" alt="Mountain landscape of Lesotho" loading="lazy">
+        </div>
+        <div class="col-md-6 reveal">
+            <h2>The Mountain Kingdom</h2>
+            <p>Lesotho is a small, landlocked country entirely surrounded by South Africa. It is one of the few countries in the world to sit entirely above 1,000 metres elevation, earning it the nickname "Kingdom in the Sky".</p>
+            <p>Lesotho is famous for its breathtaking mountains, the colourful Basotho culture, roaring waterfalls and warm, welcoming people.</p>
+
+            <h3 class="mt-4">Quick Facts</h3>
+            <ul class="facts-list">
+                <li>Capital city: Maseru</li>
+                <li>Languages: Sesotho and English</li>
+                <li>Currency: Lesotho Loti (LSL)</li>
+                <li>Nickname: The Mountain Kingdom / Kingdom in the Sky</li>
+                <li>Traditional clothing: Basotho blankets &amp; mokorotlo hats</li>
+                <li>Highest point: Thabana Ntlenyana – 3,482 m</li>
+                <li>Population: approximately 2.3 million people</li>
+                <li>Independence: 4 October 1966</li>
+            </ul>
+
+            <a href="destinations.html" class="btn btn-success mt-3">Explore Destinations →</a>
+        </div>
     </div>
 </section>
 
-<!-- MAIN OVERVIEW SECTION -->
-<section class="container py-5">
-    <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-            <div class="position-relative">
-                <img src="king.jfif" class="img-fluid rounded-4 shadow-lg" alt="Spectacular Maloti Mountain peaks and Sani Pass cliffs">
-                <div class="position-absolute bottom-0 start-0 m-3 p-3 bg-dark bg-opacity-75 text-white rounded-3 backdrop-blur d-none d-sm-block">
-                    <h6 class="mb-0 fw-bold"><i class="bi bi-geo-alt-fill text-warning me-1"></i> Sani Pass &amp; Maloti Mountains</h6>
-                    <small>The legendary gateway to the Kingdom in the Sky</small>
-                </div>
+
+<section class="container my-5">
+    <div class="section-header reveal">
+        <span class="badge-pill">Our History</span>
+        <h2>A Kingdom Through Time</h2>
+        <p>Lesotho's rich history spans centuries of resilience, culture and pride.</p>
+    </div>
+    <div class="timeline">
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">~1820s</span>
+                <h4>Founding of the Kingdom</h4>
+                <p>King Moshoeshoe I united the Basotho people during the difaqane (forced migrations), establishing the Basotho nation on the fortress mountain of Thaba-Bosiu.</p>
             </div>
         </div>
-
-        <article class="col-lg-6">
-            <span class="section-pill"><i class="bi bi-flag-fill"></i> The Mountain Monarchy</span>
-            <h2 class="section-title">The Kingdom in the Sky</h2>
-            <p class="lead text-muted">Completely surrounded by South Africa, the Kingdom of Lesotho is a land of dramatic highlands, deep river valleys, and an enduring independent spirit.</p>
-            <p>Known affectionately as <em>"The Kingdom in the Sky"</em>, Lesotho holds the unique geographical distinction of having the highest lowest point of any nation in the world—every square meter rests at an elevation exceeding 1,000 meters (3,280 ft) above sea level, reaching its crown at Thabana Ntlenyana (3,482 m).</p>
-            <p>Founded in the early 19th century by the visionary diplomat and King Moshoeshoe I, the Basotho people successfully defended their independence from atop impregnable plateaus like Thaba Bosiu. Today, Lesotho welcomes world adventurers with pristine alpine air, warm hospitality, and timeless mountain traditions.</p>
-            
-            <div class="d-flex gap-3 mt-4">
-                <a href="destination.html" class="btn btn-success">
-                    <i class="bi bi-compass me-1"></i> Explore Destinations
-                </a>
-                <a href="#quickFacts" class="btn btn-outline-success">
-                    <i class="bi bi-card-checklist me-1"></i> Quick Facts
-                </a>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">1868</span>
+                <h4>British Protectorate</h4>
+                <p>Lesotho (then Basutoland) became a British protectorate, allowing it to avoid full annexation by South Africa and preserve its sovereignty.</p>
             </div>
-        </article>
+        </div>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">1966</span>
+                <h4>Independence</h4>
+                <p>Lesotho gained full independence from Britain on 4 October 1966, becoming a constitutional monarchy under King Moshoeshoe II.</p>
+            </div>
+        </div>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">1986–2000</span>
+                <h4>Lesotho Highlands Water Project</h4>
+                <p>Construction began on Africa's largest water transfer scheme, transforming the economy and bringing Lesotho's mountain rivers to South Africa.</p>
+            </div>
+        </div>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">Today</span>
+                <h4>A Rising Destination</h4>
+                <p>Lesotho is growing as an ecotourism and adventure travel gem, welcoming visitors from around the world to its unspoilt highlands and vibrant culture.</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- FAST FACTS SECTION -->
-<section id="quickFacts" class="py-5" style="background-color: var(--bg-surface-alt);">
+<!-- CULTURE SECTION -->
+<section class="culture-section reveal">
     <div class="container">
         <div class="section-header">
-            <span class="section-pill"><i class="bi bi-info-square-fill"></i> Fast Facts</span>
-            <h2 class="section-title">Lesotho at a Glance</h2>
-            <p class="section-subtitle">Essential geographic, cultural, and travel metrics for your visit.</p>
+            <span class="badge-pill">Culture &amp; Traditions</span>
+            <h2>Living Culture of the Basotho</h2>
+            <p>The Basotho people maintain proud traditions that colour everyday life across the kingdom.</p>
         </div>
-
         <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="info-box">
-                    <div class="info-box-icon"><i class="bi bi-buildings"></i></div>
-                    <h3>Capital City</h3>
-                    <p><strong>Maseru</strong> is the bustling capital, situated along the Mohokare (Caledon) River bordering South Africa.</p>
+            <div class="col-md-4">
+                <div class="culture-card">
+                    <div class="culture-icon"></div>
+                    <h4>Basotho Blanket</h4>
+                    <p>The iconic Basotho blanket is worn as a symbol of identity, warmth and social status — different patterns mark different life stages.</p>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="info-box">
-                    <div class="info-box-icon"><i class="bi bi-cash-coin"></i></div>
-                    <h3>Currency</h3>
-                    <p><strong>Lesotho Loti (LSL / M)</strong>, pegged 1:1 to the South African Rand (ZAR). Both currencies are widely accepted.</p>
+            <div class="col-md-4">
+                <div class="culture-card">
+                    <div class="culture-icon"></div>
+                    <h4>Famo Music</h4>
+                    <p>Famo is a lively traditional music genre, performed with the accordion, drums and vocals — the soundtrack of Lesotho's highlands.</p>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="info-box">
-                    <div class="info-box-icon"><i class="bi bi-translate"></i></div>
-                    <h3>Official Languages</h3>
-                    <p><strong>Sesotho</strong> and <strong>English</strong>. English is widely spoken in commerce, hotels, and tourist centers.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="info-box">
-                    <div class="info-box-icon"><i class="bi bi-arrow-up-right-circle"></i></div>
-                    <h3>Highest Elevation</h3>
-                    <p><strong>Thabana Ntlenyana (3,482 m)</strong> is the highest point in all of Southern Africa, south of Kilimanjaro.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="info-box">
-                    <div class="info-box-icon"><i class="bi bi-thermometer-sun"></i></div>
-                    <h3>Alpine Climate</h3>
-                    <p>Over 300 sunny days per year. Crisp temperate summers (Nov–Feb) and snow-capped winter wonderland (Jun–Aug).</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="info-box">
-                    <div class="info-box-icon"><i class="bi bi-chat-quote"></i></div>
-                    <h3>National Motto</h3>
-                    <p><strong>"Khotso, Pula, Nala"</strong>: Peace, Rain, Prosperity. The foundational greeting of all Basotho people.</p>
+            <div class="col-md-4">
+                <div class="culture-card">
+                    <div class="culture-icon"></div>
+                    <h4>Basotho Pony</h4>
+                    <p>These hardy mountain ponies are still the primary form of transport in remote highland villages, and pony trekking is a must-do experience.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- LIVING CULTURE & SYMBOLS -->
-<section class="container py-5">
-    <div class="section-header">
-        <span class="section-pill"><i class="bi bi-gem"></i> Heritage & Symbols</span>
-        <h2 class="section-title">Cultural Emblems of the Basotho</h2>
-        <p class="section-subtitle">Symbols that embody the resilience, artistry, and identity of the nation.</p>
-    </div>
-
-    <div class="row g-4">
-        <!-- Blanket -->
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="fs-1 text-success mb-3"><i class="bi bi-patch-check"></i></div>
-                    <h3>The Basotho Blanket (Seanamarena)</h3>
-                    <p class="card-text">Worn with immense pride, the wool blanket is an iconic national garment. Distinct patterns mark royal events, childbirth, weddings, and traditional rites of passage into adulthood.</p>
-                    <span class="badge bg-success-subtle text-success">National Garment</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mokorotlo -->
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="fs-1 text-warning mb-3"><i class="bi bi-cone-striped"></i></div>
-                    <h3>The Mokorotlo Hat</h3>
-                    <p class="card-text">Woven by hand from local mosea grass, this conical hat mirrors the shape of the sacred mountain Mount Qiloane. It is emblazoned on the Lesotho flag and vehicle license plates.</p>
-                    <span class="badge bg-warning-subtle text-warning">Flag Symbol</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Basotho Pony -->
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="fs-1 text-primary mb-3"><i class="bi bi-signpost-2"></i></div>
-                    <h3>The Basotho Pony</h3>
-                    <p class="card-text">Bred for sure-footed stamina across steep mountain shale and thin alpine air, the pony remains essential for highland transport and guided wilderness trekking.</p>
-                    <span class="badge bg-primary-subtle text-primary">Mountain Transport</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TRAVEL ADVICE & FAQ ACCORDION -->
-<section class="py-5" style="background-color: var(--bg-surface-alt);">
-    <div class="container" style="max-width: 860px;">
-        <div class="section-header">
-            <span class="section-pill"><i class="bi bi-question-circle-fill"></i> Travel Guide</span>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Helpful insights to prepare for your journey to Lesotho.</p>
-        </div>
-
-        <div class="accordion shadow-sm rounded-3 overflow-hidden" id="faqAccordion">
-            <!-- Item 1 -->
-            <div class="accordion-item border-0 border-bottom">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="bi bi-passport text-success me-2"></i> Do I need a visa to enter Lesotho?
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-muted">
-                        Citizens of many countries (including the UK, USA, EU nations, and SADC members) can enter Lesotho visa-free for stays up to 14 or 30 days. An electronic visa (eVisa) is easily obtainable online for travelers requiring one. Ensure your passport is valid for at least 6 months with 2 blank pages.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="accordion-item border-0 border-bottom">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="bi bi-calendar3 text-success me-2"></i> What is the best season to visit?
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-muted">
-                        Lesotho is a year-round destination:
-                        <ul class="mt-2 mb-0">
-                            <li><strong>Spring/Summer (Oct–Mar):</strong> Lush green mountains, full waterfalls, pony trekking, and wildflower blooms.</li>
-                            <li><strong>Autumn (Apr–May):</strong> Golden light, crisp sunny days, and perfect hiking temperatures.</li>
-                            <li><strong>Winter (Jun–Aug):</strong> Snow sports at Afriski, frozen waterfalls, and crackling lodge fires.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="accordion-item border-0 border-bottom">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="bi bi-car-front text-success me-2"></i> Do I need a 4x4 vehicle?
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-muted">
-                        Paved national highways connect major towns like Maseru, Roma, and Katse Dam. However, reaching Sani Pass, Sehlabathebe, and deep mountain trails strictly requires a high-clearance 4x4. The border post at Sani Pass will turn away 2WD vehicles for safety.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <i class="bi bi-camera text-success me-2"></i> What is the local etiquette for photography?
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-muted">
-                        Basotho people are remarkably welcoming. Always greet people first (<em>"Dumela"</em> or <em>"Khotso"</em>) and politely ask for permission before taking photographs of individuals, herd boys, or village homesteads.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- BOTTOM CTA -->
-<section class="container text-center py-5">
-    <div class="p-4 p-md-5 rounded-4 bg-surface border">
-        <h3 class="fw-bold mb-2">Ready to Experience Lesotho?</h3>
-        <p class="text-muted mb-4">Discover captivating destinations or reach out to our tourism desk for customized trip planning.</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="destination.html" class="btn btn-success"><i class="bi bi-compass me-1"></i> Browse Destinations</a>
-            <a href="contact.html" class="btn btn-warning"><i class="bi bi-envelope me-1"></i> Contact Us</a>
-        </div>
-    </div>
-</section>
 </main>
 
-<!-- FOOTER -->
+<!-- BACK TO TOP -->
+<button id="backToTop" title="Back to top">↑</button>
+
 <footer>
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-brand">
-                    <span class="brand-icon"><i class="bi bi-compass"></i></span>
-                    <span>Explore Lesotho</span>
-                </div>
-                <p class="footer-description">The official tourism inspiration portal for the Kingdom of Lesotho. Discover untouched mountains, rich Basotho heritage, and alpine adventures.</p>
-                <div class="footer-social-links">
-                    <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-btn" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                </div>
+    <div class="container footer-inner">
+        <div class="row g-3 justify-content-between align-items-start">
+            <div class="col-md-4">
+                <div class="footer-brand"> Discover Lesotho</div>
+                <p class="footer-desc">Your gateway to the Kingdom in the Sky.</p>
             </div>
-
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-heading">Quick Links</h5>
+            <div class="col-md-3">
+                <h6 class="footer-heading">Quick Links</h6>
                 <ul class="footer-links">
-                    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                    <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Destinations</a></li>
-                    <li><a href="service.html"><i class="bi bi-chevron-right"></i> Services</a></li>
-                    <li><a href="gallery.html"><i class="bi bi-chevron-right"></i> Photo Gallery</a></li>
-                    <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact &amp; Booking</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Book a Trip</a></li>
                 </ul>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <h5 class="footer-heading">Top Destinations</h5>
-                <ul class="footer-links">
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Maletsunyane Falls</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Katse Dam</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sehlabathebe Park</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Thabana Ntlenyana</a></li>
-                    <li><a href="destination.html"><i class="bi bi-chevron-right"></i> Sani Pass Road</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <h5 class="footer-heading">Tourism Helpline</h5>
-                <ul class="footer-links">
-                    <li><span class="text-white"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Maseru, Lesotho</span></li>
-                    <li><span class="text-white"><i class="bi bi-telephone-fill text-warning me-2"></i> +266 2231 2427</span></li>
-                    <li><span class="text-white"><i class="bi bi-envelope-fill text-warning me-2"></i> info@explorelesotho.gov.ls</span></li>
-                    <li><span class="text-white"><i class="bi bi-shield-check text-warning me-2"></i> Mountain Emergency: +266 2232 2011</span></li>
-                </ul>
+            <div class="col-md-3">
+                <h6 class="footer-heading">Contact</h6>
+                <p class="footer-contact"> Maseru, Lesotho</p>
+                <p class="footer-contact"> +266 2231 2345</p>
+                <p class="footer-contact"> info@discoverlesotho.ls</p>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Explore Lesotho Tourism. All Rights Reserved. Khotso, Pula, Nala.</p>
-            <p>Designed with pride for the Mountain Kingdom in the Sky.</p>
-        </div>
+        <hr class="footer-divider">
+        <p class="footer-copy">&copy; 2026 Discover Lesotho Tourism Website. All rights reserved.</p>
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Main Script -->
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,628 +1,559 @@
-/**
- * ============================================================================
- * EXPLORE LESOTHO - MODERN JAVASCRIPT CONTROLLER
- * Interactive Features: Filtering, Lightbox, Dynamic Calculator, Dark Mode, Storage
- * ============================================================================
- */
+/* ============================================================
+   Discover Lesotho – script.js
+   ============================================================ */
 
-document.addEventListener("DOMContentLoaded", function () {
-    initTheme();
-    initDestinationFilters();
-    initGalleryModal();
-    initBookingCalculator();
-    initForms();
-    initServiceModals();
-    initBackToTop();
-    initUrlParams();
-});
+// ── 1. DARK MODE ─────────────────────────────────────────────
+(function () {
+    var btn  = document.getElementById("darkToggle");
+    var root = document.documentElement;
+    var KEY  = "lesotho-theme";
 
-/* ==========================================================================
-   1. THEME CONTROLLER (Dark / Light Mode)
-   ========================================================================== */
-function initTheme() {
-    const savedTheme = localStorage.getItem("lesothoTheme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-
-    if (isDark) {
-        document.body.classList.add("dark-mode");
-    } else {
-        document.body.classList.remove("dark-mode");
-    }
-
-    // Insert toggle button if not already present
-    let toggleBtn = document.getElementById("themeToggleBtn");
-    if (!toggleBtn) {
-        const navContainer = document.querySelector(".navbar .navbar-nav");
-        if (navContainer) {
-            const li = document.createElement("li");
-            li.className = "nav-item d-flex align-items-center ms-lg-2 my-2 my-lg-0";
-            li.innerHTML = `
-                <button type="button" id="themeToggleBtn" class="btn-theme-toggle" aria-label="Toggle theme">
-                    <i class="bi ${isDark ? 'bi-sun-fill' : 'bi-moon-stars-fill'}"></i>
-                    <span class="theme-label">${isDark ? 'Light Mode' : 'Dark Mode'}</span>
-                </button>
-            `;
-            navContainer.parentNode.appendChild(li);
-            toggleBtn = document.getElementById("themeToggleBtn");
+    function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        if (btn) {
+            btn.innerHTML = theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode";
         }
     }
 
-    if (toggleBtn) {
-        toggleBtn.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-            const currentlyDark = document.body.classList.contains("dark-mode");
-            localStorage.setItem("lesothoTheme", currentlyDark ? "dark" : "light");
-            
-            const icon = toggleBtn.querySelector("i");
-            const label = toggleBtn.querySelector(".theme-label");
-            if (icon) {
-                icon.className = currentlyDark ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
-            }
-            if (label) {
-                label.textContent = currentlyDark ? "Light Mode" : "Dark Mode";
-            }
+    // Apply saved preference on load
+    applyTheme(localStorage.getItem(KEY) || "light");
+
+    if (btn) {
+        btn.addEventListener("click", function () {
+            var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            localStorage.setItem(KEY, next);
+            applyTheme(next);
         });
     }
-}
+})();
 
-/* ==========================================================================
-   2. DESTINATION SEARCH & CATEGORY FILTERING
-   ========================================================================== */
-function initDestinationFilters() {
-    const searchInput = document.getElementById("destinationSearch");
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const destinationCards = document.querySelectorAll(".destination-card");
-    const noResults = document.getElementById("noResults");
 
-    if (!searchInput && filterButtons.length === 0) return;
+// ── 2. SCROLL REVEAL ─────────────────────────────────────────
+(function () {
+    var items = document.querySelectorAll(".reveal");
+    if (!items.length || !("IntersectionObserver" in window)) {
+        // Fallback: show everything immediately
+        items.forEach(function (el) { el.classList.add("visible"); });
+        return;
+    }
 
-    let activeFilter = "all";
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
 
-    function filterDestinations() {
-        const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
-        let visibleCount = 0;
+    items.forEach(function (el) { observer.observe(el); });
+})();
 
-        destinationCards.forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const category = card.dataset.category || "";
 
-            const matchesCategory = activeFilter === "all" || category === activeFilter;
-            const matchesQuery = query === "" || cardText.includes(query);
+// ── 3. ANIMATED STAT COUNTERS ────────────────────────────────
+(function () {
+    var counters = document.querySelectorAll(".counter");
+    if (!counters.length) return;
 
-            if (matchesCategory && matchesQuery) {
-                card.style.display = "";
-                card.classList.add("animate-in");
-                visibleCount++;
+    function animateCounter(el) {
+        var target  = parseInt(el.getAttribute("data-target"), 10);
+        var suffix  = el.getAttribute("data-suffix") || "";
+        var duration = 1600;
+        var start    = null;
+
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = Math.min((timestamp - start) / duration, 1);
+            var eased    = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target.toLocaleString() + suffix;
+        }
+        requestAnimationFrame(step);
+    }
+
+    if (!("IntersectionObserver" in window)) {
+        counters.forEach(animateCounter);
+        return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    counters.forEach(function (el) { io.observe(el); });
+})();
+
+
+// ── 4. BACK TO TOP ───────────────────────────────────────────
+(function () {
+    var btn = document.getElementById("backToTop");
+    if (!btn) return;
+
+    window.addEventListener("scroll", function () {
+        btn.classList.toggle("visible", window.scrollY > 400);
+    });
+
+    btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+})();
+
+
+// ── 5. DESTINATION SEARCH + CATEGORY FILTER ──────────────────
+(function () {
+    var searchBox    = document.getElementById("searchBox");
+    var filterBtns   = document.querySelectorAll(".filter-btn");
+    var destinations = document.querySelectorAll(".destination");
+    var noResults    = document.getElementById("noResults");
+
+    if (!destinations.length) return;
+
+    var currentFilter = "all";
+    var currentQuery  = "";
+
+    function applyFilters() {
+        var anyVisible = false;
+
+        destinations.forEach(function (card) {
+            var matchesQuery    = card.innerText.toLowerCase().includes(currentQuery);
+            var matchesCategory = currentFilter === "all" ||
+                                  card.getAttribute("data-category") === currentFilter;
+
+            if (matchesQuery && matchesCategory) {
+                card.classList.remove("hidden");
+                anyVisible = true;
             } else {
-                card.style.display = "none";
+                card.classList.add("hidden");
             }
         });
 
         if (noResults) {
-            noResults.hidden = visibleCount > 0;
-            if (visibleCount === 0) {
-                noResults.innerHTML = `
-                    <div class="py-4 text-center">
-                        <i class="bi bi-search display-6 text-muted mb-2 d-block"></i>
-                        <h5>No destinations match your criteria</h5>
-                        <p class="text-muted">Try clearing your search keyword or switching category filter.</p>
-                        <button class="btn btn-outline-success btn-sm mt-2" onclick="resetFilters()">Reset Search</button>
-                    </div>
-                `;
-            }
+            noResults.style.display = anyVisible ? "none" : "block";
         }
     }
 
-    window.resetFilters = function() {
-        if (searchInput) searchInput.value = "";
-        activeFilter = "all";
-        filterButtons.forEach(btn => {
-            btn.classList.remove("btn-success");
-            btn.classList.add("btn-outline-success");
-            if (btn.dataset.filter === "all") {
-                btn.classList.add("btn-success");
-                btn.classList.remove("btn-outline-success");
-            }
+    if (searchBox) {
+        searchBox.addEventListener("input", function () {
+            currentQuery = this.value.trim().toLowerCase();
+            applyFilters();
         });
-        filterDestinations();
-    };
-
-    if (searchInput) {
-        searchInput.addEventListener("input", filterDestinations);
     }
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            activeFilter = button.dataset.filter;
-            filterButtons.forEach(btn => {
-                btn.classList.remove("btn-success");
-                btn.classList.add("btn-outline-success");
-            });
-            button.classList.remove("btn-outline-success");
-            button.classList.add("btn-success");
-            filterDestinations();
+    filterBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            filterBtns.forEach(function (b) { b.classList.remove("active"); });
+            this.classList.add("active");
+            currentFilter = this.getAttribute("data-filter");
+            applyFilters();
         });
     });
+})();
+
+// Clear search helper (called from inline onclick)
+function clearSearch() {
+    var searchBox = document.getElementById("searchBox");
+    if (searchBox) { searchBox.value = ""; searchBox.dispatchEvent(new Event("input")); }
 }
 
-/* ==========================================================================
-   3. GALLERY LIGHTBOX MODAL WITH KEYBOARD NAVIGATION
-   ========================================================================== */
-let currentGalleryIndex = 0;
-const galleryImages = [];
 
-function initGalleryModal() {
-    const images = document.querySelectorAll(".gallery-img, .gallery-item");
-    if (!images.length) return;
+// ── 6. GALLERY FILTER ────────────────────────────────────────
+(function () {
+    var galleryBtns  = document.querySelectorAll("#galleryGrid ~ .filter-btns .filter-btn, .filter-btns[data-gallery] .filter-btn");
+    var galleryItems = document.querySelectorAll(".gallery-item");
 
-    // Collect images
-    images.forEach((imgWrapper, index) => {
-        const img = imgWrapper.tagName === 'IMG' ? imgWrapper : imgWrapper.querySelector('img');
-        if (!img) return;
-        
-        galleryImages.push({
-            src: img.src,
-            alt: img.alt || "Lesotho Tourism Scene",
-            title: img.dataset.title || img.alt || "Explore Lesotho",
-            category: img.dataset.category || "Landscape"
-        });
+    if (!galleryItems.length) return;
 
-        imgWrapper.addEventListener("click", () => {
-            openGallery(index);
-        });
-    });
+    // Find filter buttons that are siblings to the gallery
+    var allFilterBtns = document.querySelectorAll(".filter-btn");
 
-    // Keyboard navigation
-    document.addEventListener("keydown", (e) => {
-        const modalEl = document.getElementById("galleryModal");
-        if (!modalEl || !modalEl.classList.contains("show")) return;
+    allFilterBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            if (!galleryItems.length) return;
+            var filter = this.getAttribute("data-filter");
+            if (!filter) return;
 
-        if (e.key === "ArrowLeft") {
-            changeGallery(-1);
-        } else if (e.key === "ArrowRight") {
-            changeGallery(1);
-        }
-    });
-}
-
-function openGallery(index) {
-    if (!galleryImages.length) return;
-    currentGalleryIndex = index;
-    displayGalleryImage();
-
-    const modalEl = document.getElementById("galleryModal");
-    if (modalEl && window.bootstrap) {
-        const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-        modal.show();
-    }
-}
-
-function displayGalleryImage() {
-    if (!galleryImages.length) return;
-    const current = galleryImages[currentGalleryIndex];
-
-    const previewImg = document.getElementById("previewImage");
-    const previewCaption = document.getElementById("previewCaption");
-    const previewCategory = document.getElementById("previewCategory");
-    const previewCounter = document.getElementById("previewCounter");
-
-    if (previewImg) {
-        previewImg.src = current.src;
-        previewImg.alt = current.alt;
-    }
-    if (previewCaption) {
-        previewCaption.textContent = current.title;
-    }
-    if (previewCategory) {
-        previewCategory.textContent = current.category;
-    }
-    if (previewCounter) {
-        previewCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
-    }
-}
-
-function changeGallery(direction) {
-    if (!galleryImages.length) return;
-    currentGalleryIndex = (currentGalleryIndex + direction + galleryImages.length) % galleryImages.length;
-    displayGalleryImage();
-}
-
-/* ==========================================================================
-   4. DYNAMIC BOOKING COST CALCULATOR
-   ========================================================================== */
-const DESTINATION_RATES = {
-    "Maletsunyane Falls": 650,
-    "Katse Dam": 550,
-    "Sehlabathebe National Park": 950,
-    "Thabana Ntlenyana": 850,
-    "Sani Pass Mountain Safari": 750,
-    "Tsehlanyane National Park": 600,
-    "Thaba Bosiu Cultural Village": 450
-};
-
-function initBookingCalculator() {
-    const peopleInput = document.getElementById("people");
-    const priceInput = document.getElementById("tourPrice");
-    const destinationSelect = document.getElementById("destination");
-    const totalCostDisplay = document.getElementById("totalCost");
-
-    if (!peopleInput || !priceInput || !totalCostDisplay) return;
-
-    function calculateBooking() {
-        const people = Math.max(1, Number(peopleInput.value) || 1);
-        const price = Math.max(0, Number(priceInput.value) || 0);
-        const total = people * price;
-        totalCostDisplay.textContent = "M" + total.toLocaleString();
-    }
-
-    // Auto-update price when destination changes
-    if (destinationSelect) {
-        destinationSelect.addEventListener("change", function () {
-            const dest = destinationSelect.value;
-            for (const key in DESTINATION_RATES) {
-                if (dest.includes(key)) {
-                    priceInput.value = DESTINATION_RATES[key];
-                    break;
+            galleryItems.forEach(function (item) {
+                if (filter === "all" || item.getAttribute("data-category") === filter) {
+                    item.classList.remove("hidden");
+                } else {
+                    item.classList.add("hidden");
                 }
-            }
-            calculateBooking();
+            });
         });
+    });
+})();
+
+
+// ── 7. GALLERY MODAL WITH NAVIGATION ─────────────────────────
+var galleryImages = [];
+var currentImageIndex = 0;
+
+(function () {
+    // Collect all visible gallery images for navigation
+    document.querySelectorAll(".gallery-image").forEach(function (img, idx) {
+        galleryImages.push({ src: img.src, caption: img.alt });
+    });
+})();
+
+function showImage(src, caption) {
+    var modal   = document.getElementById("imageModal");
+    var preview = document.getElementById("previewImage");
+    var capEl   = document.getElementById("previewCaption");
+
+    if (!modal || !preview) return;
+
+    // Find index of clicked image
+    for (var i = 0; i < galleryImages.length; i++) {
+        if (galleryImages[i].src === src) { currentImageIndex = i; break; }
     }
 
-    peopleInput.addEventListener("input", calculateBooking);
-    priceInput.addEventListener("input", calculateBooking);
-
-    // Set minimum travel date to today
-    const travelDate = document.getElementById("travelDate");
-    if (travelDate) {
-        const today = new Date();
-        const localDate = new Date(
-            today.getTime() - today.getTimezoneOffset() * 60000
-        ).toISOString().split("T")[0];
-        travelDate.min = localDate;
-    }
-
-    calculateBooking();
+    preview.src         = src;
+    if (capEl) capEl.textContent = caption || "";
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
 }
 
-/* ==========================================================================
-   5. BOOKING & CONTACT FORMS WITH LOCALSTORAGE
-   ========================================================================== */
-function initForms() {
-    const bookingForm = document.getElementById("bookingForm");
-    const contactForm = document.getElementById("contactForm");
-
-    renderSavedBookings();
-
-    // 1. TOUR BOOKING FORM
-    if (bookingForm) {
-        bookingForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const nameInput = document.getElementById("bookingName");
-            const emailInput = document.getElementById("bookingEmail");
-            const phoneInput = document.getElementById("bookingPhone");
-            const destInput = document.getElementById("destination");
-            const dateInput = document.getElementById("travelDate");
-            const peopleInput = document.getElementById("people");
-            const priceInput = document.getElementById("tourPrice");
-            const msgBox = document.getElementById("bookingMessage");
-
-            const name = nameInput ? nameInput.value.trim() : "";
-            const email = emailInput ? emailInput.value.trim() : "";
-            const phone = phoneInput ? phoneInput.value.trim() : "";
-            const destination = destInput ? destInput.value : "";
-            const date = dateInput ? dateInput.value : "";
-            const people = Number(peopleInput ? peopleInput.value : 0) || 0;
-            const price = Number(priceInput ? priceInput.value : 0) || 0;
-
-            if (name.length < 3 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                msgBox.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>Please enter a valid full name (at least 3 characters) and a valid email address.<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
-                if (name.length < 3 && nameInput) nameInput.focus();
-                else if (emailInput) emailInput.focus();
-                return;
-            }
-
-            if (!destination) {
-                msgBox.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>Please select a destination from the list.<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
-                if (destInput) destInput.focus();
-                return;
-            }
-
-            if (!date || new Date(date + "T00:00:00") < new Date(new Date().toDateString())) {
-                msgBox.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>Please select a valid future travel date.<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
-                if (dateInput) dateInput.focus();
-                return;
-            }
-
-            if (people < 1 || price < 0) {
-                msgBox.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>Please enter at least 1 person and a valid tour price.<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
-                if (peopleInput) peopleInput.focus();
-                return;
-            }
-
-            const total = people * price;
-            const booking = {
-                id: "LES-" + Math.floor(100000 + Math.random() * 900000),
-                name: name,
-                email: email,
-                phone: phone,
-                destination: destination,
-                date: date,
-                people: people,
-                price: price,
-                total: total,
-                totalFormatted: "M" + total.toLocaleString(),
-                createdAt: new Date().toLocaleDateString()
-            };
-
-            let savedBookings = JSON.parse(localStorage.getItem("lesothoBookings") || "[]");
-            savedBookings.unshift(booking);
-            localStorage.setItem("lesothoBookings", JSON.stringify(savedBookings));
-
-            msgBox.innerHTML = `
-                <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
-                    <i class="bi bi-check-circle-fill me-2"></i>
-                    <strong>Your booking information has been saved successfully!</strong> Reference: <strong>${booking.id}</strong>. Total: <strong>M${total.toLocaleString()}</strong>.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            `;
-
-            bookingForm.reset();
-            const totalCost = document.getElementById("totalCost");
-            if (peopleInput && priceInput && totalCost) {
-                peopleInput.value = "1";
-                priceInput.value = "500";
-                totalCost.textContent = "M500";
-            }
-            renderSavedBookings();
-        });
-    }
-
-    // 2. CONTACT US FORM
-    if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const nameInput = document.getElementById("contactName");
-            const emailInput = document.getElementById("contactEmail");
-            const subjectInput = document.getElementById("subject");
-            const messageInput = document.getElementById("message");
-            const msgBox = document.getElementById("contactMessage");
-
-            const name = nameInput ? nameInput.value.trim() : "";
-            const email = emailInput ? emailInput.value.trim() : "";
-            const subject = subjectInput ? subjectInput.value.trim() : "";
-            const message = messageInput ? messageInput.value.trim() : "";
-
-            if (name.length < 3 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                msgBox.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>Please enter a valid name (at least 3 characters) and email address.<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
-                if (name.length < 3 && nameInput) nameInput.focus();
-                else if (emailInput) emailInput.focus();
-                return;
-            }
-
-            if (!subject || !message) {
-                msgBox.innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>Please complete the subject and message fields.<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
-                return;
-            }
-
-            msgBox.innerHTML = `
-                <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
-                    <i class="bi bi-check-circle-fill me-2"></i>
-                    <strong>Thank you!</strong> Your message has been received. Our team will contact you shortly.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            `;
-
-            contactForm.reset();
-        });
+function closeImage() {
+    var modal = document.getElementById("imageModal");
+    if (modal) {
+        modal.style.display  = "none";
+        document.body.style.overflow = "";
     }
 }
 
-function renderSavedBookings() {
-    const container = document.getElementById("savedBookingsList");
-    if (!container) return;
+function navigateGallery(dir) {
+    var visibleImages = [];
+    document.querySelectorAll(".gallery-item:not(.hidden) .gallery-image").forEach(function (img) {
+        visibleImages.push({ src: img.src, caption: img.alt });
+    });
 
-    let savedBookings = JSON.parse(localStorage.getItem("lesothoBookings") || "[]");
+    if (!visibleImages.length) return;
 
-    if (!savedBookings.length) {
-        container.innerHTML = `
-            <div class="text-center py-3 text-muted">
-                <i class="bi bi-calendar2-check fs-2 mb-1 d-block text-secondary"></i>
-                <small>No reservations saved yet. Submit a booking above to store your trip.</small>
-            </div>
-        `;
+    // Find current in visible list
+    var preview = document.getElementById("previewImage");
+    var currentSrc = preview ? preview.src : "";
+    var idx = 0;
+    for (var i = 0; i < visibleImages.length; i++) {
+        if (visibleImages[i].src === currentSrc) { idx = i; break; }
+    }
+
+    idx = (idx + dir + visibleImages.length) % visibleImages.length;
+    var next = visibleImages[idx];
+
+    if (preview) preview.src = next.src;
+    var capEl = document.getElementById("previewCaption");
+    if (capEl) capEl.textContent = next.caption || "";
+}
+
+// Close modal on Escape key, navigate with arrow keys
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeImage();
+    if (e.key === "ArrowRight") navigateGallery(1);
+    if (e.key === "ArrowLeft")  navigateGallery(-1);
+});
+
+
+// ── 9. AUTH – TAB SWITCHING ──────────────────────────────────
+function switchAuthTab(tab) {
+    var loginPane    = document.getElementById("pane-login");
+    var registerPane = document.getElementById("pane-register");
+    var loginTab     = document.getElementById("tab-login");
+    var registerTab  = document.getElementById("tab-register");
+
+    if (!loginPane) return;
+
+    if (tab === "login") {
+        loginPane.style.display    = "";
+        registerPane.style.display = "none";
+        loginTab.classList.add("active");
+        loginTab.setAttribute("aria-selected", "true");
+        registerTab.classList.remove("active");
+        registerTab.setAttribute("aria-selected", "false");
+    } else {
+        registerPane.style.display = "";
+        loginPane.style.display    = "none";
+        registerTab.classList.add("active");
+        registerTab.setAttribute("aria-selected", "true");
+        loginTab.classList.remove("active");
+        loginTab.setAttribute("aria-selected", "false");
+    }
+}
+
+
+// ── 10. AUTH – SHOW/HIDE PASSWORD ────────────────────────────
+function togglePw(inputId, btn) {
+    var input = document.getElementById(inputId);
+    if (!input) return;
+    var isText = input.type === "text";
+    input.type = isText ? "password" : "text";
+    btn.textContent = isText ? "👁" : "🙈";
+    btn.setAttribute("aria-label", isText ? "Show password" : "Hide password");
+}
+
+
+// ── 11. AUTH – PASSWORD STRENGTH METER ───────────────────────
+function updateStrength(pw) {
+    var fill  = document.getElementById("strengthFill");
+    var label = document.getElementById("strengthLabel");
+    if (!fill || !label) return;
+
+    var score = 0;
+    if (pw.length >= 8)                      score++;
+    if (/[A-Z]/.test(pw))                    score++;
+    if (/[0-9]/.test(pw))                    score++;
+    if (/[^A-Za-z0-9]/.test(pw))            score++;
+    if (pw.length >= 12)                     score++;
+
+    var levels = [
+        { pct: "0%",   color: "#ccc",    text: "" },
+        { pct: "25%",  color: "#e74c3c", text: "Weak" },
+        { pct: "50%",  color: "#f39c12", text: "Fair" },
+        { pct: "75%",  color: "#2ecc71", text: "Good" },
+        { pct: "100%", color: "#1a7a40", text: "Strong 💪" }
+    ];
+
+    var lvl = pw.length === 0 ? levels[0] : levels[Math.min(score, 4)];
+    fill.style.width      = lvl.pct;
+    fill.style.background = lvl.color;
+    label.textContent     = lvl.text;
+    label.style.color     = lvl.color;
+}
+
+
+// ── 12. AUTH – FORGOT PASSWORD ───────────────────────────────
+function showForgot() {
+    var email = prompt("Enter your registered email address and we'll send a reset link:");
+    if (!email) return;
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Please enter a valid email address.");
         return;
     }
-
-    let html = '<div class="vstack gap-2">';
-    savedBookings.forEach((b, index) => {
-        const totalDisp = typeof b.total === "number" ? "M" + b.total.toLocaleString() : (b.totalFormatted || b.total || "M0");
-        const refId = b.id || ("LES-" + (index + 1));
-        html += `
-            <div class="p-3 bg-body-tertiary rounded-3 border">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="badge bg-success text-white fw-bold">${refId}</span>
-                    <button type="button" class="btn btn-sm btn-outline-danger py-0 px-2" onclick="cancelBooking(${index})" title="Cancel this reservation">
-                        <i class="bi bi-trash3"></i> Delete
-                    </button>
-                </div>
-                <h6 class="fw-bold mb-1 text-main">${b.destination || "Lesotho Tour"}</h6>
-                <div class="small text-muted mb-2">
-                    <span class="me-3"><i class="bi bi-calendar-event me-1"></i>${b.date || "Date unset"}</span>
-                    <span class="me-3"><i class="bi bi-people me-1"></i>${b.people || 1} guest(s)</span>
-                    <span><i class="bi bi-person me-1"></i>${b.name || "Guest"}</span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center pt-2 border-top small">
-                    <span class="text-muted">Estimated Total:</span>
-                    <span class="fw-bold text-success fs-6">${totalDisp}</span>
-                </div>
-            </div>
-        `;
-    });
-    html += '</div>';
-    container.innerHTML = html;
+    alert("✅ If that email is registered, a reset link has been sent to:\n" + email);
 }
 
-window.cancelBooking = function (index) {
-    let savedBookings = JSON.parse(localStorage.getItem("lesothoBookings") || "[]");
-    if (index >= 0 && index < savedBookings.length) {
-        savedBookings.splice(index, 1);
-        localStorage.setItem("lesothoBookings", JSON.stringify(savedBookings));
-        renderSavedBookings();
-    }
-};
 
-/* ==========================================================================
-   6. SERVICE / ACTIVITY INFORMATION MODAL
-   ========================================================================== */
-const SERVICE_DATA = {
-    "Luxury Hotels": {
-        title: "Luxury Hotels & Casino Resorts",
-        tag: "Premium Accommodation",
-        img: "hotel.jfif",
-        desc: "Relax in five-star elegance at premier destinations like Avani Lesotho Hotel & Casino. Features panoramic views of Maseru, heated swimming pools, world-class fine dining restaurants, full-service health spa, and state-of-the-art conference facilities.",
-        amenities: ["Free High-Speed Wi-Fi", "Outdoor Heated Pool", "Fine Dining Restaurants", "Spa & Wellness Center", "Airport Shuttle"],
-        price: "From M1,850 / night"
-    },
-    "Mountain Lodges": {
-        title: "Scenic Maloti Mountain Lodges",
-        tag: "Nature & Alpine Retreat",
-        img: "lodge.jfif",
-        desc: "Tucked inside indigenous alpine valleys, retreats like Maliba Mountain Lodge in Ts'ehlanyane National Park provide luxury thatched chalets with personal fireplaces, private viewing decks, and natural mountain stream swimming holes.",
-        amenities: ["Private Fireplace", "Mountain-view Decks", "Forest Hiking Trails", "Gourmet Meals Included", "Pony Trekking on-site"],
-        price: "From M1,400 / night"
-    },
-    "Camping": {
-        title: "High-Altitude Wilderness Camping",
-        tag: "Rugged Adventure",
-        img: "camp.jfif",
-        desc: "Sleep under the clearest starry skies in Africa. Designated wilderness campsites near Katse Dam, Sehlabathebe National Park, and Sani Pass provide secure 4x4 access, potable mountain spring water, and campfire sites.",
-        amenities: ["Designated 4x4 Camp Bays", "Braai / Campfire Facilities", "Mountain Spring Water", "Stargazing Hotspots", "Ranger Patrols"],
-        price: "From M250 / night per site"
-    },
-    "Horse Riding": {
-        title: "Basotho Pony Trekking",
-        tag: "Signature Cultural Adventure",
-        img: "zz.jfif",
-        desc: "The quintessential Lesotho experience. The hardy Basotho pony has carried travelers through rugged cliffside passes for centuries. Guided multi-hour and multi-day treks wind through isolated mountain villages and gorges.",
-        amenities: ["Experienced Local Guide", "Traditional Saddle & Tack", "Helmet & Safety Gear", "Village Cultural Stops"],
-        price: "From M350 / person"
-    },
-    "Hiking": {
-        title: "Maloti-Drakensberg Escarpment Trails",
-        tag: "Outdoor Wilderness",
-        img: "thaba.jfif",
-        desc: "Hike Southern Africa's rooftop, including routes leading to the summit of Thabana Ntlenyana (3,482m) and dramatic drops at Sani Pass. Trails cater to day hikers and experienced mountaineers alike.",
-        amenities: ["Trail Maps & GPS Tracks", "Certified Mountain Guide", "Emergency Support", "Packed Alpine Lunch option"],
-        price: "From M300 / person"
-    },
-    "Cultural Tours": {
-        title: "Living Basotho Cultural Immersion",
-        tag: "Heritage & History",
-        img: "food.jfif",
-        desc: "Step inside authentic mountain villages. Learn the history of King Moshoeshoe I at Thaba Bosiu, discover the significance of the Basotho blanket (Seanamarena), listen to the Lesiba instrument, and taste freshly prepared Papa and Morogo.",
-        amenities: ["Village Elder Welcome", "Traditional Cuisine Tasting", "Blanket Ceremony Explanation", "Craft Workshop Visit"],
-        price: "From M400 / person"
-    }
-};
+// ── 13. AUTH – USER STORAGE HELPERS ─────────────────────────
+var USERS_KEY    = "lesothoUsers";
+var SESSION_KEY  = "lesothoSession";
 
-function showService(serviceKey) {
-    const data = SERVICE_DATA[serviceKey] || {
-        title: serviceKey,
-        tag: "Tourism Service",
-        img: "leso.jfif",
-        desc: "Contact our Lesotho travel team for personalized itineraries, group bookings, and tailored recommendations.",
-        amenities: ["Personalized Guide", "Flexible Scheduling", "Local Transport"],
-        price: "Custom Quote"
-    };
-
-    const titleEl = document.getElementById("serviceTitle");
-    const descEl = document.getElementById("serviceDescription");
-    const bookLink = document.getElementById("serviceBookLink");
-
-    if (titleEl) titleEl.textContent = data.title;
-    if (descEl) {
-        let amenitiesHtml = data.amenities ? data.amenities.map(a => `<li><i class="bi bi-check2-circle text-success me-2"></i>${a}</li>`).join("") : "";
-        descEl.innerHTML = `
-            <div class="mb-3">
-                <span class="badge bg-warning text-dark mb-2">${data.tag}</span>
-                <p class="mb-3">${data.desc}</p>
-                <div class="p-3 bg-body-tertiary rounded mb-3">
-                    <h6 class="fw-bold mb-2">Service Highlights & Amenities:</h6>
-                    <ul class="list-unstyled mb-0 small">
-                        ${amenitiesHtml}
-                    </ul>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="text-muted small">Estimated Rate:</span>
-                    <span class="fw-bold text-success fs-5">${data.price}</span>
-                </div>
-            </div>
-        `;
-    }
-
-    if (bookLink) {
-        bookLink.href = `contact.html?dest=${encodeURIComponent(data.title)}`;
-    }
-
-    const modalEl = document.getElementById("serviceModal");
-    if (modalEl && window.bootstrap) {
-        const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-        modal.show();
-    }
+function getUsers() {
+    return JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
+}
+function saveUsers(users) {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+function getSession() {
+    return JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+}
+function setSession(user) {
+    localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+}
+function clearSession() {
+    localStorage.removeItem(SESSION_KEY);
 }
 
-/* ==========================================================================
-   7. URL PARAMETER HANDLING (Pre-filling Contact / Booking)
-   ========================================================================== */
-function initUrlParams() {
-    const params = new URLSearchParams(window.location.search);
-    const destParam = params.get("dest");
-    const serviceParam = params.get("service");
+// Show logged-in state if already signed in
+(function () {
+    var session = getSession();
+    if (session) showLoggedInState(session);
+})();
 
-    const destSelect = document.getElementById("destination");
-    if (destSelect && destParam) {
-        for (let i = 0; i < destSelect.options.length; i++) {
-            if (destSelect.options[i].value.toLowerCase().includes(destParam.toLowerCase()) ||
-                destParam.toLowerCase().includes(destSelect.options[i].value.toLowerCase())) {
-                destSelect.selectedIndex = i;
-                destSelect.dispatchEvent(new Event("change"));
-                break;
-            }
+function showLoggedInState(user) {
+    var loginPane = document.getElementById("pane-login");
+    var regPane   = document.getElementById("pane-register");
+    var tabRow    = document.querySelector(".auth-tabs");
+    if (!loginPane) return;
+
+    var greeting =
+        '<div class="logged-in-banner">' +
+        '  <div class="logged-in-avatar">' + initials(user.firstName, user.lastName) + '</div>' +
+        '  <div>' +
+        '    <strong>Welcome back, ' + user.firstName + '! 👋</strong>' +
+        '    <p>You\'re signed in as <em>' + user.email + '</em></p>' +
+        '  </div>' +
+        '</div>' +
+        '<button class="btn btn-outline-danger btn-sm mt-3" onclick="signOut()">Sign Out</button>';
+
+    loginPane.innerHTML  = greeting;
+    if (regPane)   regPane.style.display  = "none";
+    if (tabRow)    tabRow.style.display   = "none";
+}
+
+function initials(first, last) {
+    return ((first || "?")[0] + (last || "?")[0]).toUpperCase();
+}
+
+function signOut() {
+    clearSession();
+    location.reload();
+}
+
+
+// ── 14. AUTH – REGISTER ──────────────────────────────────────
+(function () {
+    var form = document.getElementById("registerForm");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        var firstName = document.getElementById("regFirstName").value.trim();
+        var lastName  = document.getElementById("regLastName").value.trim();
+        var email     = document.getElementById("regEmail").value.trim().toLowerCase();
+        var phone     = document.getElementById("regPhone").value.trim();
+        var country   = document.getElementById("regCountry").value;
+        var password  = document.getElementById("regPassword").value;
+        var confirm   = document.getElementById("regConfirm").value;
+        var newsletter = document.getElementById("regNewsletter").checked;
+        var feedback  = document.getElementById("registerFeedback");
+
+        // Password match check
+        if (password !== confirm) {
+            feedback.innerHTML = '<div class="alert alert-danger">❌ Passwords do not match.</div>';
+            return;
         }
-    }
 
-    const subjectInput = document.getElementById("subject");
-    if (subjectInput && serviceParam) {
-        subjectInput.value = `Inquiry regarding ${serviceParam}`;
-    }
-}
+        // Duplicate email check
+        var users = getUsers();
+        if (users.find(function (u) { return u.email === email; })) {
+            feedback.innerHTML =
+                '<div class="alert alert-warning">⚠️ An account with that email already exists. ' +
+                '<a href="#" onclick="switchAuthTab(\'login\'); return false;">Sign in instead →</a></div>';
+            return;
+        }
 
-/* ==========================================================================
-   8. BACK TO TOP BUTTON
-   ========================================================================== */
-function initBackToTop() {
-    let btn = document.getElementById("backToTopBtn");
-    if (!btn) {
-        btn = document.createElement("button");
-        btn.id = "backToTopBtn";
-        btn.setAttribute("aria-label", "Scroll back to top");
-        btn.innerHTML = `<i class="bi bi-arrow-up"></i>`;
-        document.body.appendChild(btn);
-    }
+        // Simple hash (XOR obfuscation — purely for demo; not cryptographic)
+        var stored = btoa(unescape(encodeURIComponent(password)));
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 350) {
-            btn.classList.add("visible");
+        var newUser = {
+            firstName: firstName,
+            lastName:  lastName,
+            email:     email,
+            phone:     phone,
+            country:   country,
+            password:  stored,
+            newsletter: newsletter,
+            joined:    new Date().toISOString()
+        };
+
+        users.push(newUser);
+        saveUsers(users);
+        setSession({ firstName: firstName, lastName: lastName, email: email });
+
+        feedback.innerHTML =
+            '<div class="alert alert-success">' +
+            '🎉 Welcome, <strong>' + firstName + '</strong>! Your account has been created.<br>' +
+            'You are now signed in.' +
+            '</div>';
+
+        form.reset();
+        document.getElementById("strengthFill").style.width = "0%";
+        document.getElementById("strengthLabel").textContent = "";
+
+        setTimeout(function () { showLoggedInState({ firstName: firstName, lastName: lastName, email: email }); }, 1200);
+    });
+})();
+
+
+// ── 15. AUTH – SIGN IN ───────────────────────────────────────
+(function () {
+    var form = document.getElementById("loginForm");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        var email    = document.getElementById("loginEmail").value.trim().toLowerCase();
+        var password = document.getElementById("loginPassword").value;
+        var remember = document.getElementById("rememberMe").checked;
+        var feedback = document.getElementById("loginFeedback");
+        var users    = getUsers();
+        var stored   = btoa(unescape(encodeURIComponent(password)));
+
+        var match = users.find(function (u) {
+            return u.email === email && u.password === stored;
+        });
+
+        if (!match) {
+            feedback.innerHTML =
+                '<div class="alert alert-danger">❌ Incorrect email or password. Please try again.</div>';
+            return;
+        }
+
+        setSession({ firstName: match.firstName, lastName: match.lastName, email: match.email });
+
+        if (remember) {
+            localStorage.setItem("lesothoRemember", email);
         } else {
-            btn.classList.remove("visible");
+            localStorage.removeItem("lesothoRemember");
         }
+
+        feedback.innerHTML =
+            '<div class="alert alert-success">' +
+            '✅ Welcome back, <strong>' + match.firstName + '</strong>!' +
+            '</div>';
+
+        form.reset();
+        setTimeout(function () { showLoggedInState(match); }, 900);
     });
 
-    btn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    // Pre-fill remembered email
+    var remembered = localStorage.getItem("lesothoRemember");
+    if (remembered) {
+        var emailInput = document.getElementById("loginEmail");
+        if (emailInput) emailInput.value = remembered;
+        var cb = document.getElementById("rememberMe");
+        if (cb) cb.checked = true;
+    }
+})();
+
+(function () {
+    var form = document.getElementById("bookingForm");
+    if (!form) return;
+
+    // Set min date to today
+    var dateInput = document.getElementById("date");
+    if (dateInput) {
+        var today = new Date().toISOString().split("T")[0];
+        dateInput.setAttribute("min", today);
+    }
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        var booking = {
+            name:          document.getElementById("name").value,
+            email:         document.getElementById("email").value,
+            phone:         document.getElementById("phone").value,
+            date:          document.getElementById("date").value,
+            guests:        (document.getElementById("guests") || {}).value || "2",
+            destination:   document.getElementById("destination").value,
+            accommodation: (document.getElementById("accommodation") || {}).value || "",
+            message:       (document.getElementById("message") || {}).value || ""
+        };
+
+        var bookings = JSON.parse(localStorage.getItem("tourismBookings") || "[]");
+        bookings.push(booking);
+        localStorage.setItem("tourismBookings", JSON.stringify(bookings));
+
+        document.getElementById("feedback").innerHTML =
+            '<div class="alert alert-success">' +
+            '✅ Thank you, <strong>' + booking.name + '</strong>! ' +
+            'Your booking enquiry for <strong>' + booking.destination + '</strong> ' +
+            'on <strong>' + booking.date + '</strong> has been saved. ' +
+            'We will contact you at <strong>' + booking.email + '</strong> within 24 hours.' +
+            '</div>';
+
+        form.reset();
+        window.scrollTo({ top: document.getElementById("feedback").offsetTop - 80, behavior: "smooth" });
     });
-}
+})();
